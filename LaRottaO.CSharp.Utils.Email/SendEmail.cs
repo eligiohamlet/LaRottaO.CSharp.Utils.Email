@@ -12,6 +12,18 @@ namespace LaRottaO.CSharp.Utils.Email
         {
             return Task.Run(() =>
             {
+                fromNickname = "<" + fromNickname + "> " + fromEmail;
+
+                Console.WriteLine("Server: " + argServer);
+                Console.WriteLine("Port: " + argPort);
+                Console.WriteLine("DestinationAddress: " + argDestinationAddress);
+                Console.WriteLine("Subject: " + argSubject);
+                Console.WriteLine("Body: ..." + argBody);
+                Console.WriteLine("IsBodyHtml: " + argIsBodyHtml);
+                Console.WriteLine("FromEmail: " + fromEmail);
+                Console.WriteLine("Password: " + fromPassword);
+                Console.WriteLine("FromNickname: " + fromNickname);
+
                 try
                 {
                     var client = new SmtpClient(argServer, Convert.ToInt32(argPort))
