@@ -51,6 +51,18 @@ namespace LaRottaO.CSharp.Utils.Email
         {
             return Task.Run(() =>
             {
+                fromNickname = "<" + fromNickname + "> " + fromEmail;
+
+                Console.WriteLine("Server: " + argServer);
+                Console.WriteLine("Port: " + argPort);
+                Console.WriteLine("DestinationAddress: " + argDestinationAddress);
+                Console.WriteLine("Subject: " + argSubject);
+                Console.WriteLine("Body: ..." + argBody);
+                Console.WriteLine("IsBodyHtml: " + argIsBodyHtml);
+                Console.WriteLine("FromEmail: " + fromEmail);
+                Console.WriteLine("Password: " + fromPassword);
+                Console.WriteLine("FromNickname: " + fromNickname);
+
                 try
                 {
                     var client = new SmtpClient(argServer, Convert.ToInt32(argPort))
@@ -74,11 +86,15 @@ namespace LaRottaO.CSharp.Utils.Email
 
                     client.Send(msg);
 
-                    return new Tuple<Boolean, String>(true, "E-mail with attachments sent successfuly");
+                    String successMessage = "E-mail with attachments sent successfuly";
+                    Console.WriteLine(successMessage);
+                    return new Tuple<Boolean, String>(true, successMessage);
                 }
                 catch (Exception ex)
                 {
-                    return new Tuple<Boolean, String>(false, "Error while sending e-mail: " + ex);
+                    String failureMessage = "Error while sending e-mail: " + ex;
+                    Console.WriteLine(failureMessage);
+                    return new Tuple<Boolean, String>(false, failureMessage);
                 }
             });
         }
