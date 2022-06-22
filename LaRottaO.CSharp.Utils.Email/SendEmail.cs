@@ -8,7 +8,7 @@ namespace LaRottaO.CSharp.Utils.Email
 {
     public class SendEmail
     {
-        public Task<Tuple<Boolean, String>> sendWithoutAttachments(String argServer, String argPort, String argDestinationAddress, String argSubject, String argBody, Boolean argIsBodyHtml, String fromEmail, String fromPassword, String fromNickname)
+        public Task<Tuple<Boolean, String>> sendWithoutAttachments(String argServer, String argPort, String argDestinationAddress, String argSubject, String argBody, Boolean argIsBodyHtml, String fromEmail, String fromPassword, String fromNickname, String argDestinationCc = null, String argDestinationBcc = null)
         {
             return Task.Run(() =>
             {
@@ -17,6 +17,8 @@ namespace LaRottaO.CSharp.Utils.Email
                 Console.WriteLine("Server: " + argServer);
                 Console.WriteLine("Port: " + argPort);
                 Console.WriteLine("DestinationAddress: " + argDestinationAddress);
+                Console.WriteLine("CCAddress: " + argDestinationCc);
+                Console.WriteLine("BCCAddress: " + argDestinationBcc);
                 Console.WriteLine("Subject: " + argSubject);
                 Console.WriteLine("Body: ..." + argBody);
                 Console.WriteLine("IsBodyHtml: " + argIsBodyHtml);
@@ -36,6 +38,16 @@ namespace LaRottaO.CSharp.Utils.Email
 
                     msg.IsBodyHtml = argIsBodyHtml;
 
+                    if (argDestinationCc != null)
+                    {
+                        msg.CC.Add(argDestinationCc);
+                    }
+
+                    if (argDestinationBcc != null)
+                    {
+                        msg.Bcc.Add(argDestinationBcc);
+                    }
+
                     client.Send(msg);
 
                     return new Tuple<Boolean, String>(true, "E-mail sent successfuly");
@@ -47,7 +59,7 @@ namespace LaRottaO.CSharp.Utils.Email
             });
         }
 
-        public Task<Tuple<Boolean, String>> sendWithAttachments(String argServer, String argPort, String argDestinationAddress, String argSubject, String argBody, Boolean argIsBodyHtml, String attachedFilePath, String fromEmail, String fromPassword, String fromNickname)
+        public Task<Tuple<Boolean, String>> sendWithAttachments(String argServer, String argPort, String argDestinationAddress, String argSubject, String argBody, Boolean argIsBodyHtml, String attachedFilePath, String fromEmail, String fromPassword, String fromNickname, String argDestinationCc = null, String argDestinationBcc = null)
         {
             return Task.Run(() =>
             {
@@ -56,6 +68,8 @@ namespace LaRottaO.CSharp.Utils.Email
                 Console.WriteLine("Server: " + argServer);
                 Console.WriteLine("Port: " + argPort);
                 Console.WriteLine("DestinationAddress: " + argDestinationAddress);
+                Console.WriteLine("CCAddress: " + argDestinationCc);
+                Console.WriteLine("BCCAddress: " + argDestinationBcc);
                 Console.WriteLine("Subject: " + argSubject);
                 Console.WriteLine("Body: ..." + argBody);
                 Console.WriteLine("IsBodyHtml: " + argIsBodyHtml);
@@ -74,6 +88,16 @@ namespace LaRottaO.CSharp.Utils.Email
                     MailMessage msg = new MailMessage(fromNickname, argDestinationAddress, argSubject, argBody);
 
                     msg.IsBodyHtml = argIsBodyHtml;
+
+                    if (argDestinationCc != null)
+                    {
+                        msg.CC.Add(argDestinationCc);
+                    }
+
+                    if (argDestinationBcc != null)
+                    {
+                        msg.Bcc.Add(argDestinationBcc);
+                    }
 
                     Attachment data = new Attachment(attachedFilePath, MediaTypeNames.Application.Octet);
 
