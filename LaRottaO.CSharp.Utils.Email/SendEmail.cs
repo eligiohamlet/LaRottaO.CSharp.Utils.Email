@@ -34,18 +34,18 @@ namespace LaRottaO.CSharp.Utils.Email
                         EnableSsl = true,
                     };
 
-                    MailMessage msg = new MailMessage(fromNickname, argDestinationAddress, argSubject, argBody);
+                    MailMessage msg = new MailMessage(fromNickname, argDestinationAddress.Trim().Replace(" ", ""), argSubject, argBody);
 
                     msg.IsBodyHtml = argIsBodyHtml;
 
-                    if (argDestinationCc != null)
+                    if (argDestinationCc != null && !String.IsNullOrWhiteSpace(argDestinationCc))
                     {
-                        msg.CC.Add(argDestinationCc);
+                        msg.CC.Add(argDestinationCc.Trim().Replace(" ", ""));
                     }
 
-                    if (argDestinationBcc != null)
+                    if (argDestinationBcc != null && !String.IsNullOrWhiteSpace(argDestinationBcc))
                     {
-                        msg.Bcc.Add(argDestinationBcc);
+                        msg.Bcc.Add(argDestinationBcc.Trim().Replace(" ", ""));
                     }
 
                     client.Send(msg);
@@ -85,18 +85,18 @@ namespace LaRottaO.CSharp.Utils.Email
                         EnableSsl = true
                     };
 
-                    MailMessage msg = new MailMessage(fromNickname, argDestinationAddress, argSubject, argBody);
+                    MailMessage msg = new MailMessage(fromNickname, argDestinationAddress.Trim().Replace(" ", ""), argSubject, argBody);
 
                     msg.IsBodyHtml = argIsBodyHtml;
 
-                    if (argDestinationCc != null)
+                    if (argDestinationCc != null && !String.IsNullOrWhiteSpace(argDestinationCc))
                     {
-                        msg.CC.Add(argDestinationCc);
+                        msg.CC.Add(argDestinationCc.Trim().Replace(" ", ""));
                     }
 
-                    if (argDestinationBcc != null)
+                    if (argDestinationBcc != null && !String.IsNullOrWhiteSpace(argDestinationBcc))
                     {
-                        msg.Bcc.Add(argDestinationBcc);
+                        msg.Bcc.Add(argDestinationBcc.Trim().Replace(" ", ""));
                     }
 
                     Attachment data = new Attachment(attachedFilePath, MediaTypeNames.Application.Octet);
