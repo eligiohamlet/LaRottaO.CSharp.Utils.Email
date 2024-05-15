@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
@@ -8,7 +9,9 @@ namespace LaRottaO.CSharp.Utils.Email
 {
     public class SendEmail
     {
-        public Task<Tuple<Boolean, String>> sendWithoutAttachments(String argServer, String argPort, String argDestinationAddress, String argSubject, String argBody, Boolean argIsBodyHtml, String fromEmail, String fromPassword, String fromNickname, String argDestinationCc = null, String argDestinationBcc = null)
+        public Task<Tuple<Boolean, String>> sendWithoutAttachments(String argServer, String argPort, String argDestinationAddress, 
+            String argSubject, String argBody, Boolean argIsBodyHtml, String fromEmail, String fromPassword, String fromNickname, 
+            String argDestinationCc = null, String argDestinationBcc = null, bool agregaFirma = false, String nombreFirma = "") //,bool addAnimation = false, String animationPath =""
         {
             return Task.Run(() =>
             {
@@ -34,8 +37,35 @@ namespace LaRottaO.CSharp.Utils.Email
                         EnableSsl = true,
                     };
 
-                    MailMessage msg = new MailMessage(fromNickname, argDestinationAddress.Trim().Replace(" ", ""), argSubject, argBody);
+                    MailMessage msg = new MailMessage(fromNickname, argDestinationAddress.Trim().Replace(" ", ""));
+                    msg.Subject = argSubject;
 
+                    String rutaFirma = @"C:\Firmas\"; // Ruta local en el equipo que ejecuta el proceso
+
+                    if(String.IsNullOrEmpty(nombreFirma))
+                    { rutaFirma += "YobiBasica.jpg"; }
+                    else
+                    { rutaFirma += nombreFirma.Trim() + ".jpg"; }
+
+                    if (!agregaFirma || !File.Exists(rutaFirma))
+                    { msg.Body = argBody.Replace("<img src=\"cid:Firma\">", ""); }
+
+                    if (agregaFirma && File.Exists(rutaFirma))
+                    {
+                        LinkedResource LinkedImage = new LinkedResource(rutaFirma);
+
+                        LinkedImage.ContentId = "Firma";
+                        //Added the patch for Thunderbird as suggested by Jorge
+                        
+                        LinkedImage.ContentType = new ContentType(MediaTypeNames.Image.Jpeg);
+
+                        AlternateView htmlView = AlternateView.CreateAlternateViewFromString(
+                          argBody, null, MediaTypeNames.Text.Html);
+
+                        htmlView.LinkedResources.Add(LinkedImage);
+                        msg.AlternateViews.Add(htmlView);
+                    }
+                    
                     msg.IsBodyHtml = argIsBodyHtml;
 
                     if (argDestinationCc != null && !String.IsNullOrWhiteSpace(argDestinationCc))
