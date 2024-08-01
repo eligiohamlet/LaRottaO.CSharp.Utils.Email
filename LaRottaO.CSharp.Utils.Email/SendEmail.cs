@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
@@ -70,12 +71,18 @@ namespace LaRottaO.CSharp.Utils.Email
 
                     if (argDestinationCc != null && !String.IsNullOrWhiteSpace(argDestinationCc))
                     {
-                        msg.CC.Add(argDestinationCc.Trim().Replace(" ", ""));
+                        List<string> listaCc = new List<string>(argDestinationCc.Split(';'));
+                        foreach (string cc in listaCc)
+                        { msg.CC.Add(cc.Trim().Replace(" ", "")); }
+                        //msg.CC.Add(argDestinationCc.Trim().Replace(" ", ""));
                     }
 
                     if (argDestinationBcc != null && !String.IsNullOrWhiteSpace(argDestinationBcc))
                     {
-                        msg.Bcc.Add(argDestinationBcc.Trim().Replace(" ", ""));
+                        List<string> listaBcc = new List<string>(argDestinationBcc.Split(';'));
+                        foreach (string bcc in listaBcc)
+                        { msg.Bcc.Add(bcc.Trim().Replace(" ", "")); }
+                        //msg.Bcc.Add(argDestinationBcc.Trim().Replace(" ", ""));
                     }
 
                     client.Send(msg);
@@ -121,12 +128,18 @@ namespace LaRottaO.CSharp.Utils.Email
 
                     if (argDestinationCc != null && !String.IsNullOrWhiteSpace(argDestinationCc))
                     {
-                        msg.CC.Add(argDestinationCc.Trim().Replace(" ", ""));
+                        List<string> listaCc = new List<string>(argDestinationCc.Split(';'));
+                        foreach (string cc in listaCc)
+                        { msg.CC.Add(cc.Trim().Replace(" ", "")); }
+                        //msg.CC.Add(argDestinationCc.Trim().Replace(" ", ""));
                     }
 
                     if (argDestinationBcc != null && !String.IsNullOrWhiteSpace(argDestinationBcc))
                     {
-                        msg.Bcc.Add(argDestinationBcc.Trim().Replace(" ", ""));
+                        List<string> listaBcc = new List<string>(argDestinationBcc.Split(';'));
+                        foreach (string bcc in listaBcc)
+                        { msg.Bcc.Add(bcc.Trim().Replace(" ", "")); }
+                        //msg.Bcc.Add(argDestinationBcc.Trim().Replace(" ", ""));
                     }
 
                     Attachment data = new Attachment(attachedFilePath, MediaTypeNames.Application.Octet);

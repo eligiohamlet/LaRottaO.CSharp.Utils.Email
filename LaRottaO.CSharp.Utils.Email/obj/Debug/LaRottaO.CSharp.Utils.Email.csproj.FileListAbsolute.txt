@@ -73,6 +73,6 @@ E:\Repositorios\LaRottaO.CSharp.Utils.Email\LaRottaO.CSharp.Utils.Email\bin\Debu
 E:\Repositorios\LaRottaO.CSharp.Utils.Email\LaRottaO.CSharp.Utils.Email\bin\Debug\System.Threading.Tasks.Extensions.xml
 E:\Repositorios\LaRottaO.CSharp.Utils.Email\LaRottaO.CSharp.Utils.Email\obj\Debug\LaRottaO.CSharp.Utils.Email.csproj.AssemblyReference.cache
 E:\Repositorios\LaRottaO.CSharp.Utils.Email\LaRottaO.CSharp.Utils.Email\obj\Debug\LaRottaO.CSharp.Utils.Email.csproj.CoreCompileInputs.cache
-E:\Repositorios\LaRottaO.CSharp.Utils.Email\LaRottaO.CSharp.Utils.Email\obj\Debug\LaRottaO.CSharp.Utils.Email.csproj.CopyComplete
 E:\Repositorios\LaRottaO.CSharp.Utils.Email\LaRottaO.CSharp.Utils.Email\obj\Debug\LaRottaO.CSharp.Utils.Email.dll
 E:\Repositorios\LaRottaO.CSharp.Utils.Email\LaRottaO.CSharp.Utils.Email\obj\Debug\LaRottaO.CSharp.Utils.Email.pdb
+E:\Repositorios\LaRottaO.CSharp.Utils.Email\LaRottaO.CSharp.Utils.Email\obj\Debug\LaRottaO.7AF47E1F.Up2Date
