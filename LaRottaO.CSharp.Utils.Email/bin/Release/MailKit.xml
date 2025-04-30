@@ -17,10 +17,10 @@
             SSL-wrapped connection.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
         </member>
         <member name="M:MailKit.Net.Imap.ImapClient.CompressAsync(System.Threading.CancellationToken)">
@@ -309,7 +309,7 @@
             populated.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
             <returns>An asynchronous task context.</returns>
             <param name="host">The host name to connect to.</param>
@@ -495,7 +495,7 @@
             If <paramref name="quit"/> is <c>true</c>, a <c>LOGOUT</c> command will be issued in order to disconnect cleanly.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
             <returns>An asynchronous task context.</returns>
             <param name="quit">If set to <c>true</c>, a <c>LOGOUT</c> command will be issued in order to disconnect cleanly.</param>
@@ -895,7 +895,7 @@
             methods.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
         </member>
         <member name="M:MailKit.Net.Imap.ImapClient.#ctor(MailKit.IProtocolLogger)">
@@ -958,7 +958,7 @@
         </member>
         <member name="P:MailKit.Net.Imap.ImapClient.AppendLimit">
             <summary>
-            Gets the maximum size of a message that can be appended to a folder.
+            Get the maximum size of a message that can be appended to a folder.
             </summary>
             <remarks>
             <para>Gets the maximum size of a message, in bytes, that can be appended to a folder.</para>
@@ -968,7 +968,7 @@
         </member>
         <member name="P:MailKit.Net.Imap.ImapClient.InternationalizationLevel">
             <summary>
-            Gets the internationalization level supported by the IMAP server.
+            Get the internationalization level supported by the IMAP server.
             </summary>
             <remarks>
             <para>Gets the internationalization level supported by the IMAP server.</para>
@@ -1478,7 +1478,7 @@
             populated.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
             <param name="host">The host name to connect to.</param>
             <param name="port">The port to connect to. If the specified port is <c>0</c>, then the default port will be used.</param>
@@ -1652,7 +1652,7 @@
             If <paramref name="quit"/> is <c>true</c>, a <c>LOGOUT</c> command will be issued in order to disconnect cleanly.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
             <param name="quit">If set to <c>true</c>, a <c>LOGOUT</c> command will be issued in order to disconnect cleanly.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -1853,6 +1853,9 @@
             <remarks>
             The personal folder namespaces contain a user's personal mailbox folders.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="Namespaces"/>
+            </example>
             <value>The personal namespaces.</value>
         </member>
         <member name="P:MailKit.Net.Imap.ImapClient.SharedNamespaces">
@@ -1862,6 +1865,9 @@
             <remarks>
             The shared folder namespaces contain mailbox folders that are shared with the user.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="Namespaces"/>
+            </example>
             <value>The shared namespaces.</value>
         </member>
         <member name="P:MailKit.Net.Imap.ImapClient.OtherNamespaces">
@@ -1871,6 +1877,9 @@
             <remarks>
             The other folder namespaces contain other mailbox folders.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="Namespaces"/>
+            </example>
             <value>The other namespaces.</value>
         </member>
         <member name="P:MailKit.Net.Imap.ImapClient.SupportsQuotas">
@@ -1891,7 +1900,7 @@
             <note type="note">This property will only be available after the client has been authenticated.</note>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
             <value>The Inbox folder.</value>
             <exception cref="T:System.ObjectDisposedException">
@@ -1939,6 +1948,9 @@
             <remarks>
             Gets the folder for the specified namespace.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="Namespaces"/>
+            </example>
             <returns>The folder.</returns>
             <param name="namespace">The namespace.</param>
             <exception cref="T:System.ArgumentNullException">
@@ -2213,7 +2225,7 @@
         </member>
         <member name="P:MailKit.Net.Imap.IImapClient.AppendLimit">
             <summary>
-            Gets the maximum size of a message that can be appended to a folder.
+            Get the maximum size of a message that can be appended to a folder.
             </summary>
             <remarks>
             <para>Gets the maximum size of a message, in bytes, that can be appended to a folder.</para>
@@ -2223,7 +2235,7 @@
         </member>
         <member name="P:MailKit.Net.Imap.IImapClient.InternationalizationLevel">
             <summary>
-            Gets the internationalization level supported by the IMAP server.
+            Get the internationalization level supported by the IMAP server.
             </summary>
             <remarks>
             <para>Gets the internationalization level supported by the IMAP server.</para>
@@ -2788,10 +2800,10 @@
             Implemented by <see cref="T:MailKit.Net.Imap.ImapFolder"/>.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
         </member>
         <member name="M:MailKit.Net.Imap.IImapFolder.GetHeaders(MailKit.UniqueId,System.String,System.Threading.CancellationToken,MailKit.ITransferProgress)">
@@ -3679,7 +3691,7 @@
         </member>
         <member name="F:MailKit.Net.Imap.ImapCapabilities.IMAP4rev2">
             <summary>
-            The server implements the core IMAP4rev2 commands.
+            The server implements the core IMAP4rev2 commands described in <a href="https://tools.ietf.org/html/rfc9051">rfc9051</a>.
             </summary>
         </member>
         <member name="F:MailKit.Net.Imap.ImapCapabilities.Status">
@@ -3958,6 +3970,11 @@
             The server supports the <a href="https://tools.ietf.org/html/rfc8514">SAVEDATE</a> extension.
             </summary>
         </member>
+        <member name="F:MailKit.Net.Imap.ImapCapabilities.Preview">
+            <summary>
+            The server supports the <a href="https://tools.ietf.org/html/rfc8970">PREVIEW</a> extension.
+            </summary>
+        </member>
         <member name="F:MailKit.Net.Imap.ImapCapabilities.XList">
             <summary>
             The server supports the <a href="https://developers.google.com/gmail/imap_extensions">XLIST</a> extension (GMail).
@@ -4152,6 +4169,13 @@
             <param name="options">The formatting options.</param>
             <param name="format">The command format.</param>
             <param name="args">The command arguments.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <para><paramref name="engine"/> is <c>null</c>.</para>
+            <para>-or-</para>
+            <para><paramref name="options"/> is <c>null</c>.</para>
+            <para>-or-</para>
+            <para><paramref name="format"/> is <c>null</c>.</para>
+            </exception>
         </member>
         <member name="M:MailKit.Net.Imap.ImapCommand.#ctor(MailKit.Net.Imap.ImapEngine,System.Threading.CancellationToken,MailKit.Net.Imap.ImapFolder,System.String,System.Object[])">
             <summary>
@@ -4165,6 +4189,11 @@
             <param name="folder">The IMAP folder that the command operates on.</param>
             <param name="format">The command format.</param>
             <param name="args">The command arguments.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <para><paramref name="engine"/> is <c>null</c>.</para>
+            <para>-or-</para>
+            <para><paramref name="format"/> is <c>null</c>.</para>
+            </exception>
         </member>
         <member name="M:MailKit.Net.Imap.ImapCommand.RegisterUntaggedHandler(System.String,MailKit.Net.Imap.ImapUntaggedHandler)">
             <summary>
@@ -4181,7 +4210,22 @@
             Untagged handlers must be registered before the command has been queued.
             </exception>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapCommand.StepAsync(System.Boolean)">
+        <member name="M:MailKit.Net.Imap.ImapCommand.Step">
+            <summary>
+            Sends the next part of the command to the server.
+            </summary>
+            <returns><c>true</c> if there are more command parts to send; otherwise, <c>false</c>.</returns>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.Net.Imap.ImapProtocolException">
+            An IMAP protocol error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapCommand.StepAsync">
             <summary>
             Sends the next part of the command to the server.
             </summary>
@@ -4205,6 +4249,14 @@
             </remarks>
             <param name="type">The type of response-code.</param>
             <returns>The response-code if it exists; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapCommand.ThrowIfNotOk(System.String)">
+            <summary>
+            Throw an <see cref="T:MailKit.Net.Imap.ImapCommandException"/> if the response was not OK.
+            </summary>
+            <remarks>
+            Throws an <see cref="T:MailKit.Net.Imap.ImapCommandException"/> if the response was not OK.
+            </remarks>
         </member>
         <member name="T:MailKit.Net.Imap.ImapCommandException">
             <summary>
@@ -4378,7 +4430,7 @@
             </summary>
             <remarks>
             The authentication mechanisms are queried durring the
-            <see cref="M:MailKit.Net.Imap.ImapEngine.ConnectAsync(MailKit.Net.Imap.ImapStream,System.Boolean,System.Threading.CancellationToken)"/> method.
+            <see cref="M:MailKit.Net.Imap.ImapEngine.Connect(MailKit.Net.Imap.ImapStream,System.Threading.CancellationToken)"/> or <see cref="M:MailKit.Net.Imap.ImapEngine.ConnectAsync(MailKit.Net.Imap.ImapStream,System.Threading.CancellationToken)"/> methods.
             </remarks>
             <value>The authentication mechanisms.</value>
         </member>
@@ -4388,7 +4440,8 @@
             </summary>
             <remarks>
             The compression algorithms are populated by the
-            <see cref="M:MailKit.Net.Imap.ImapEngine.QueryCapabilitiesAsync(System.Boolean,System.Threading.CancellationToken)"/> method.
+            <see cref="M:MailKit.Net.Imap.ImapEngine.QueryCapabilities(System.Threading.CancellationToken)"/> and
+            <see cref="M:MailKit.Net.Imap.ImapEngine.QueryCapabilitiesAsync(System.Threading.CancellationToken)"/> methods.
             </remarks>
             <value>The compression algorithms.</value>
         </member>
@@ -4398,7 +4451,8 @@
             </summary>
             <remarks>
             The threading algorithms are populated by the
-            <see cref="M:MailKit.Net.Imap.ImapEngine.QueryCapabilitiesAsync(System.Boolean,System.Threading.CancellationToken)"/> method.
+            <see cref="M:MailKit.Net.Imap.ImapEngine.QueryCapabilities(System.Threading.CancellationToken)"/> and
+            <see cref="M:MailKit.Net.Imap.ImapEngine.QueryCapabilitiesAsync(System.Threading.CancellationToken)"/> methods.
             </remarks>
             <value>The threading algorithms.</value>
         </member>
@@ -4425,8 +4479,8 @@
             Get the capabilities supported by the IMAP server.
             </summary>
             <remarks>
-            The capabilities will not be known until a successful connection
-            has been made via the <see cref="M:MailKit.Net.Imap.ImapEngine.ConnectAsync(MailKit.Net.Imap.ImapStream,System.Boolean,System.Threading.CancellationToken)"/> method.
+            The capabilities will not be known until a successful connection has been
+            made via the <see cref="M:MailKit.Net.Imap.ImapEngine.Connect(MailKit.Net.Imap.ImapStream,System.Threading.CancellationToken)"/> or <see cref="M:MailKit.Net.Imap.ImapEngine.ConnectAsync(MailKit.Net.Imap.ImapStream,System.Threading.CancellationToken)"/> method.
             </remarks>
             <value>The capabilities.</value>
         </member>
@@ -4653,12 +4707,11 @@
             </summary>
             <param name="stream">The IMAP stream.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.ConnectAsync(MailKit.Net.Imap.ImapStream,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.Connect(MailKit.Net.Imap.ImapStream,System.Threading.CancellationToken)">
             <summary>
             Takes posession of the <see cref="T:MailKit.Net.Imap.ImapStream"/> and reads the greeting.
             </summary>
             <param name="stream">The IMAP stream.</param>
-            <param name="doAsync">Whether or not asyncrhonois IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.OperationCanceledException">
             The operation was canceled via the cancellation token.
@@ -4670,13 +4723,30 @@
             An IMAP protocol error occurred.
             </exception>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.Disconnect">
+        <member name="M:MailKit.Net.Imap.ImapEngine.ConnectAsync(MailKit.Net.Imap.ImapStream,System.Threading.CancellationToken)">
+            <summary>
+            Takes posession of the <see cref="T:MailKit.Net.Imap.ImapStream"/> and reads the greeting.
+            </summary>
+            <param name="stream">The IMAP stream.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.Net.Imap.ImapProtocolException">
+            An IMAP protocol error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.Disconnect(System.Exception)">
             <summary>
             Disconnects the <see cref="T:MailKit.Net.Imap.ImapEngine"/>.
             </summary>
             <remarks>
             Disconnects the <see cref="T:MailKit.Net.Imap.ImapEngine"/>.
             </remarks>
+            <param name="ex">The exception that is causing the disconnection.</param>
         </member>
         <member name="M:MailKit.Net.Imap.ImapEngine.ReadLine(System.Threading.CancellationToken)">
             <summary>
@@ -4740,6 +4810,46 @@
             Asynchronously reads the next token.
             </summary>
             <returns>The token.</returns>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.InvalidOperationException">
+            The engine is not connected.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.Net.Imap.ImapProtocolException">
+            An IMAP protocol error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.ReadToken(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Reads the next token.
+            </summary>
+            <returns>The token.</returns>
+            <param name="specials">A list of characters that are not legal in bare string tokens.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.InvalidOperationException">
+            The engine is not connected.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.Net.Imap.ImapProtocolException">
+            An IMAP protocol error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.ReadTokenAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously reads the next token.
+            </summary>
+            <returns>The token.</returns>
+            <param name="specials">A list of characters that are not legal in bare string tokens.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.InvalidOperationException">
             The engine is not connected.
@@ -4864,34 +4974,60 @@
             An I/O error occurred.
             </exception>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.ParseResponseCodeAsync(System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.ParseResponseCode(System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Parses the response code.
             </summary>
             <returns>The response code.</returns>
             <param name="isTagged">Whether or not the resp-code is tagged vs untagged.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.ProcessUntaggedResponseAsync(System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.ParseResponseCodeAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Parses the response code.
+            </summary>
+            <returns>The response code.</returns>
+            <param name="isTagged">Whether or not the resp-code is tagged vs untagged.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.ProcessUntaggedResponse(System.Threading.CancellationToken)">
             <summary>
             Processes an untagged response.
             </summary>
             <returns>The untagged response.</returns>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.IterateAsync(System.Boolean)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.ProcessUntaggedResponseAsync(System.Threading.CancellationToken)">
+            <summary>
+            Processes an untagged response.
+            </summary>
+            <returns>The untagged response.</returns>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.Iterate">
             <summary>
             Iterate the command pipeline.
             </summary>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.RunAsync(MailKit.Net.Imap.ImapCommand,System.Boolean)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.IterateAsync">
+            <summary>
+            Asynchronously iterate the command pipeline.
+            </summary>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.Run(MailKit.Net.Imap.ImapCommand)">
             <summary>
             Wait for the specified command to finish.
             </summary>
             <param name="ic">The IMAP command.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="ic"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.RunAsync(MailKit.Net.Imap.ImapCommand)">
+            <summary>
+            Wait for the specified command to finish.
+            </summary>
+            <param name="ic">The IMAP command.</param>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="ic"/> is <c>null</c>.
             </exception>
@@ -4923,12 +5059,18 @@
             </summary>
             <param name="ic">The IMAP command.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.QueryCapabilitiesAsync(System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.QueryCapabilities(System.Threading.CancellationToken)">
             <summary>
             Queries the capabilities.
             </summary>
             <returns>The command result.</returns>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.QueryCapabilitiesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Queries the capabilities.
+            </summary>
+            <returns>The command result.</returns>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
         <member name="M:MailKit.Net.Imap.ImapEngine.CacheFolder(MailKit.Net.Imap.ImapFolder)">
@@ -4937,7 +5079,7 @@
             </summary>
             <param name="folder">The folder.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.GetCachedFolder(System.String,MailKit.Net.Imap.ImapFolder@)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.TryGetCachedFolder(System.String,MailKit.Net.Imap.ImapFolder@)">
             <summary>
             Gets the cached folder.
             </summary>
@@ -4945,20 +5087,32 @@
             <param name="encodedName">The encoded folder name.</param>
             <param name="folder">The cached folder.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.LookupParentFoldersAsync(System.Collections.Generic.IEnumerable{MailKit.Net.Imap.ImapFolder},System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.LookupParentFolders(System.Collections.Generic.IEnumerable{MailKit.Net.Imap.ImapFolder},System.Threading.CancellationToken)">
             <summary>
             Looks up and sets the <see cref="P:MailKit.MailFolder.ParentFolder"/> property of each of the folders.
             </summary>
             <param name="folders">The IMAP folders.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.QueryNamespacesAsync(System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.LookupParentFoldersAsync(System.Collections.Generic.IEnumerable{MailKit.Net.Imap.ImapFolder},System.Threading.CancellationToken)">
+            <summary>
+            Looks up and sets the <see cref="P:MailKit.MailFolder.ParentFolder"/> property of each of the folders.
+            </summary>
+            <param name="folders">The IMAP folders.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.QueryNamespaces(System.Threading.CancellationToken)">
             <summary>
             Queries the namespaces.
             </summary>
             <returns>The command result.</returns>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.QueryNamespacesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously queries the namespaces.
+            </summary>
+            <returns>The command result.</returns>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
         <member name="M:MailKit.Net.Imap.ImapEngine.AssignSpecialFolder(MailKit.Net.Imap.ImapFolder)">
@@ -4973,32 +5127,51 @@
             </summary>
             <param name="list">The list of folders.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.QuerySpecialFoldersAsync(System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.QuerySpecialFolders(System.Threading.CancellationToken)">
             <summary>
             Queries the special folders.
             </summary>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.GetQuotaRootFolderAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.QuerySpecialFoldersAsync(System.Threading.CancellationToken)">
+            <summary>
+            Queries the special folders.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.GetQuotaRootFolder(System.String,System.Threading.CancellationToken)">
             <summary>
             Gets the folder representing the specified quota root.
             </summary>
             <returns>The folder.</returns>
             <param name="quotaRoot">The name of the quota root.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.GetFolderAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.GetQuotaRootFolderAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the folder representing the specified quota root.
+            </summary>
+            <returns>The folder.</returns>
+            <param name="quotaRoot">The name of the quota root.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.GetFolder(System.String,System.Threading.CancellationToken)">
             <summary>
             Gets the folder for the specified path.
             </summary>
             <returns>The folder.</returns>
             <param name="path">The folder path.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapEngine.GetFoldersAsync(MailKit.FolderNamespace,MailKit.StatusItems,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapEngine.GetFolderAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the folder for the specified path.
+            </summary>
+            <returns>The folder.</returns>
+            <param name="path">The folder path.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.GetFolders(MailKit.FolderNamespace,MailKit.StatusItems,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Get all of the folders within the specified namespace.
             </summary>
@@ -5009,7 +5182,19 @@
             <param name="namespace">The namespace.</param>
             <param name="items">The status items to pre-populate.</param>
             <param name="subscribedOnly">If set to <c>true</c>, only subscribed folders will be listed.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEngine.GetFoldersAsync(MailKit.FolderNamespace,MailKit.StatusItems,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Get all of the folders within the specified namespace.
+            </summary>
+            <remarks>
+            Gets all of the folders within the specified namespace.
+            </remarks>
+            <returns>The list of folders.</returns>
+            <param name="namespace">The namespace.</param>
+            <param name="items">The status items to pre-populate.</param>
+            <param name="subscribedOnly">If set to <c>true</c>, only subscribed folders will be listed.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
         <member name="M:MailKit.Net.Imap.ImapEngine.DecodeMailboxName(System.String)">
@@ -5077,6 +5262,21 @@
             </remarks>
         </member>
         <member name="M:MailKit.Net.Imap.ImapEventGroup.#ctor(MailKit.Net.Imap.ImapMailboxFilter,System.Collections.Generic.IList{MailKit.Net.Imap.ImapEvent})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MailKit.Net.Imap.ImapEventGroup"/> class.
+            </summary>
+            <remarks>
+            Initializes a new instance of the <see cref="T:MailKit.Net.Imap.ImapEventGroup"/> class.
+            </remarks>
+            <param name="mailboxFilter">The mailbox filter.</param>
+            <param name="events">The list of IMAP events.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <para><paramref name="mailboxFilter"/> is <c>null</c>.</para>
+            <para>-or-</para>
+            <para><paramref name="events"/> is <c>null</c>.</para>
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapEventGroup.#ctor(MailKit.Net.Imap.ImapMailboxFilter,MailKit.Net.Imap.ImapEvent[])">
             <summary>
             Initializes a new instance of the <see cref="T:MailKit.Net.Imap.ImapEventGroup"/> class.
             </summary>
@@ -5595,10 +5795,10 @@
             An IMAP folder.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
         </member>
         <member name="M:MailKit.Net.Imap.ImapFolder.#ctor(MailKit.Net.Imap.ImapFolderConstructorArgs)">
@@ -6629,7 +6829,7 @@
             of getting the desired information should be used.</para>
             <para>For example, a common use for the <see cref="M:MailKit.Net.Imap.ImapFolder.Status(MailKit.StatusItems,System.Threading.CancellationToken)"/>
             method is to get the number of unread messages in the folder. When the folder is open, however, it is
-            possible to use the <see cref="M:MailKit.Net.Imap.ImapFolder.Search(MailKit.Search.SearchQuery,System.Threading.CancellationToken)"/>
+            possible to use the <see cref="M:MailKit.MailFolder.Search(MailKit.Search.SearchQuery,System.Threading.CancellationToken)"/>
             method to query for the list of unread messages.</para>
             <para>For more information about the <c>STATUS</c> command, see
             <a href="https://tools.ietf.org/html/rfc3501#section-6.3.10">rfc3501</a>.</para>
@@ -6675,7 +6875,7 @@
             of getting the desired information should be used.</para>
             <para>For example, a common use for the <see cref="M:MailKit.Net.Imap.ImapFolder.Status(MailKit.StatusItems,System.Threading.CancellationToken)"/>
             method is to get the number of unread messages in the folder. When the folder is open, however, it is
-            possible to use the <see cref="M:MailKit.Net.Imap.ImapFolder.Search(MailKit.Search.SearchQuery,System.Threading.CancellationToken)"/>
+            possible to use the <see cref="M:MailKit.MailFolder.Search(MailKit.Search.SearchQuery,System.Threading.CancellationToken)"/>
             method to query for the list of unread messages.</para>
             <para>For more information about the <c>STATUS</c> command, see
             <a href="https://tools.ietf.org/html/rfc3501#section-6.3.10">rfc3501</a>.</para>
@@ -7479,6 +7679,26 @@
             <exception cref="T:MailKit.Net.Imap.ImapCommandException">
             The server replied with a NO or BAD response.
             </exception>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapFolder.UntaggedQuotaRootHandler(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+            <summary>
+            Handles an untagged QUOTAROOT response.
+            </summary>
+            <returns>An asynchronous task.</returns>
+            <param name="engine">The IMAP engine.</param>
+            <param name="ic">The IMAP command.</param>
+            <param name="index">The index.</param>
+            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapFolder.UntaggedQuotaHandler(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+            <summary>
+            Handles an untagged QUOTA response.
+            </summary>
+            <returns>An asynchronous task.</returns>
+            <param name="engine">The IMAP engine.</param>
+            <param name="ic">The IMAP command.</param>
+            <param name="index">The index.</param>
+            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
         </member>
         <member name="M:MailKit.Net.Imap.ImapFolder.GetQuota(System.Threading.CancellationToken)">
             <summary>
@@ -9131,7 +9351,7 @@
             not requested at all.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>An enumeration of summaries for the requested messages.</returns>
             <param name="uids">The UIDs.</param>
@@ -9187,7 +9407,7 @@
             not requested at all.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>An enumeration of summaries for the requested messages.</returns>
             <param name="uids">The UIDs.</param>
@@ -10208,6 +10428,9 @@
             <remarks>
             Gets the specified body part.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueIdAndSpecifier"/>
+            </example>
             <returns>The body part.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="partSpecifier">The body part specifier.</param>
@@ -10254,6 +10477,9 @@
             <remarks>
             Gets the specified body part.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueIdAndSpecifier"/>
+            </example>
             <returns>The body part.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="partSpecifier">The body part specifier.</param>
@@ -10301,7 +10527,7 @@
             Gets the specified body part.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>The body part.</returns>
             <param name="uid">The UID of the message.</param>
@@ -10350,7 +10576,7 @@
             Gets the specified body part.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>The body part.</returns>
             <param name="uid">The UID of the message.</param>
@@ -10582,8 +10808,8 @@
             <remarks>
             Fetches a substream of the message. If the starting offset is beyond
             the end of the message, an empty stream is returned. If the number of
-            bytes desired extends beyond the end of the message, a truncated stream
-            will be returned.
+            bytes desired extends beyond the end of the message, the stream will
+            end where the message ends.
             </remarks>
             <returns>The stream.</returns>
             <param name="uid">The UID of the message.</param>
@@ -10634,8 +10860,8 @@
             <remarks>
             Fetches a substream of the message. If the starting offset is beyond
             the end of the message, an empty stream is returned. If the number of
-            bytes desired extends beyond the end of the message, a truncated stream
-            will be returned.
+            bytes desired extends beyond the end of the message,  the stream will
+            end where the message ends.
             </remarks>
             <returns>The stream.</returns>
             <param name="uid">The UID of the message.</param>
@@ -10790,6 +11016,9 @@
             <para>For more information about how to construct the <paramref name="section"/>,
             see Section 6.4.5 of RFC3501.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueIdAndSpecifier"/>
+            </example>
             <returns>The stream.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="section">The desired section of the message.</param>
@@ -10838,6 +11067,9 @@
             <para>For more information about how to construct the <paramref name="section"/>,
             see Section 6.4.5 of RFC3501.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueIdAndSpecifier"/>
+            </example>
             <returns>The stream.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="section">The desired section of the message.</param>
@@ -11944,90 +12176,6 @@
             The server replied with a NO or BAD response.
             </exception>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapFolder.Search(MailKit.Search.SearchQuery,System.Threading.CancellationToken)">
-            <summary>
-            Search the folder for messages matching the specified query.
-            </summary>
-            <remarks>
-            The returned array of unique identifiers can be used with methods such as
-            <see cref="M:MailKit.IMailFolder.GetMessage(MailKit.UniqueId,System.Threading.CancellationToken,MailKit.ITransferProgress)"/>.
-            </remarks>
-            <returns>An array of matching UIDs.</returns>
-            <param name="query">The search query.</param>
-            <param name="cancellationToken">The cancellation token.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="query"/> is <c>null</c>.
-            </exception>
-            <exception cref="T:System.NotSupportedException">
-            One or more search terms in the <paramref name="query"/> are not supported by the IMAP server.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">
-            The <see cref="T:MailKit.Net.Imap.ImapClient"/> has been disposed.
-            </exception>
-            <exception cref="T:MailKit.ServiceNotConnectedException">
-            The <see cref="T:MailKit.Net.Imap.ImapClient"/> is not connected.
-            </exception>
-            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
-            The <see cref="T:MailKit.Net.Imap.ImapClient"/> is not authenticated.
-            </exception>
-            <exception cref="T:MailKit.FolderNotOpenException">
-            The <see cref="T:MailKit.Net.Imap.ImapFolder"/> is not currently open.
-            </exception>
-            <exception cref="T:System.OperationCanceledException">
-            The operation was canceled via the cancellation token.
-            </exception>
-            <exception cref="T:System.IO.IOException">
-            An I/O error occurred.
-            </exception>
-            <exception cref="T:MailKit.Net.Imap.ImapProtocolException">
-            The server's response contained unexpected tokens.
-            </exception>
-            <exception cref="T:MailKit.Net.Imap.ImapCommandException">
-            The server replied with a NO or BAD response.
-            </exception>
-        </member>
-        <member name="M:MailKit.Net.Imap.ImapFolder.SearchAsync(MailKit.Search.SearchQuery,System.Threading.CancellationToken)">
-            <summary>
-            Asynchronously search the folder for messages matching the specified query.
-            </summary>
-            <remarks>
-            The returned array of unique identifiers can be used with methods such as
-            <see cref="M:MailKit.IMailFolder.GetMessage(MailKit.UniqueId,System.Threading.CancellationToken,MailKit.ITransferProgress)"/>.
-            </remarks>
-            <returns>An array of matching UIDs.</returns>
-            <param name="query">The search query.</param>
-            <param name="cancellationToken">The cancellation token.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="query"/> is <c>null</c>.
-            </exception>
-            <exception cref="T:System.NotSupportedException">
-            One or more search terms in the <paramref name="query"/> are not supported by the IMAP server.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">
-            The <see cref="T:MailKit.Net.Imap.ImapClient"/> has been disposed.
-            </exception>
-            <exception cref="T:MailKit.ServiceNotConnectedException">
-            The <see cref="T:MailKit.Net.Imap.ImapClient"/> is not connected.
-            </exception>
-            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
-            The <see cref="T:MailKit.Net.Imap.ImapClient"/> is not authenticated.
-            </exception>
-            <exception cref="T:MailKit.FolderNotOpenException">
-            The <see cref="T:MailKit.Net.Imap.ImapFolder"/> is not currently open.
-            </exception>
-            <exception cref="T:System.OperationCanceledException">
-            The operation was canceled via the cancellation token.
-            </exception>
-            <exception cref="T:System.IO.IOException">
-            An I/O error occurred.
-            </exception>
-            <exception cref="T:MailKit.Net.Imap.ImapProtocolException">
-            The server's response contained unexpected tokens.
-            </exception>
-            <exception cref="T:MailKit.Net.Imap.ImapCommandException">
-            The server replied with a NO or BAD response.
-            </exception>
-        </member>
         <member name="M:MailKit.Net.Imap.ImapFolder.Search(MailKit.Search.SearchOptions,MailKit.Search.SearchQuery,System.Threading.CancellationToken)">
             <summary>
             Search the folder for messages matching the specified query.
@@ -12625,7 +12773,9 @@
             Constructor arguments for <see cref="T:MailKit.Net.Imap.ImapFolder"/>.
             </summary>
             <remarks>
-            Constructor arguments for <see cref="T:MailKit.Net.Imap.ImapFolder"/>.
+            <para>Constructor arguments for <see cref="T:MailKit.Net.Imap.ImapFolder"/>.</para>
+            <para>The <see cref="T:MailKit.Net.Imap.ImapFolderConstructorArgs"/> are meant only to allow subclassing of <see cref="T:MailKit.Net.Imap.ImapFolder"/>
+            by overriding the <see cref="M:MailKit.Net.Imap.ImapClient.CreateImapFolder(MailKit.Net.Imap.ImapFolderConstructorArgs)"/> method.</para>
             </remarks>
         </member>
         <member name="M:MailKit.Net.Imap.ImapFolderConstructorArgs.#ctor(MailKit.Net.Imap.ImapEngine,System.String,MailKit.FolderAttributes,System.Char)">
@@ -13505,10 +13655,25 @@
             One or more of the indexes has a negative value.
             </exception>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseImplementationAsync(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseImplementation(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand)">
             <summary>
             Parses an untagged ID response.
             </summary>
+            <param name="engine">The IMAP engine.</param>
+            <param name="ic">The IMAP command.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseImplementationAsync(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand)">
+            <summary>
+            Asynchronously parses an untagged ID response.
+            </summary>
+            <param name="engine">The IMAP engine.</param>
+            <param name="ic">The IMAP command.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.UntaggedIdHandler(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+            <summary>
+            Handles an untagged ID response.
+            </summary>
+            <returns>An asynchronous task.</returns>
             <param name="engine">The IMAP engine.</param>
             <param name="ic">The IMAP command.</param>
             <param name="index">The index.</param>
@@ -13533,7 +13698,7 @@
             <returns><c>true</c> if the specified mailbox name is the Inbox; otherwise, <c>false</c>.</returns>
             <param name="mailboxName">The mailbox name.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseFolderListAsync(MailKit.Net.Imap.ImapEngine,System.Collections.Generic.List{MailKit.Net.Imap.ImapFolder},System.Boolean,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseFolderList(MailKit.Net.Imap.ImapEngine,System.Collections.Generic.List{MailKit.Net.Imap.ImapFolder},System.Boolean,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Parses an untagged LIST or LSUB response.
             </summary>
@@ -13541,44 +13706,68 @@
             <param name="list">The list of folders to be populated.</param>
             <param name="isLsub"><c>true</c> if it is an LSUB response; otherwise, <c>false</c>.</param>
             <param name="returnsSubscribed"><c>true</c> if the LIST response is expected to return \Subscribed flags; otherwise, <c>false</c>.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseFolderListAsync(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseFolderListAsync(MailKit.Net.Imap.ImapEngine,System.Collections.Generic.List{MailKit.Net.Imap.ImapFolder},System.Boolean,System.Boolean,System.Threading.CancellationToken)">
             <summary>
-            Parses an untagged LIST or LSUB response.
+            Asynchronously parses an untagged LIST or LSUB response.
+            </summary>
+            <param name="engine">The IMAP engine.</param>
+            <param name="list">The list of folders to be populated.</param>
+            <param name="isLsub"><c>true</c> if it is an LSUB response; otherwise, <c>false</c>.</param>
+            <param name="returnsSubscribed"><c>true</c> if the LIST response is expected to return \Subscribed flags; otherwise, <c>false</c>.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.UntaggedListHandler(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+            <summary>
+            Handles an untagged LIST or LSUB response.
             </summary>
             <param name="engine">The IMAP engine.</param>
             <param name="ic">The IMAP command.</param>
             <param name="index">The index.</param>
             <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseMetadataAsync(MailKit.Net.Imap.ImapEngine,MailKit.MetadataCollection,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseMetadata(MailKit.Net.Imap.ImapEngine,MailKit.MetadataCollection,System.Threading.CancellationToken)">
             <summary>
             Parses an untagged METADATA response.
             </summary>
             <returns>The encoded name of the folder that the metadata belongs to.</returns>
             <param name="engine">The IMAP engine.</param>
             <param name="metadata">The metadata collection to be populated.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseMetadataAsync(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseMetadataAsync(MailKit.Net.Imap.ImapEngine,MailKit.MetadataCollection,System.Threading.CancellationToken)">
             <summary>
-            Parses an untagged METADATA response.
+            Asynchronously parses an untagged METADATA response.
+            </summary>
+            <returns>The encoded name of the folder that the metadata belongs to.</returns>
+            <param name="engine">The IMAP engine.</param>
+            <param name="metadata">The metadata collection to be populated.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.UntaggedMetadataHandler(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+            <summary>
+            Handles an untagged METADATA response.
             </summary>
             <param name="engine">The IMAP engine.</param>
             <param name="ic">The IMAP command.</param>
             <param name="index">The index.</param>
             <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseEnvelopeAsync(MailKit.Net.Imap.ImapEngine,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseEnvelope(MailKit.Net.Imap.ImapEngine,System.Threading.CancellationToken)">
             <summary>
             Parses the ENVELOPE parenthesized list.
             </summary>
             <returns>The envelope.</returns>
             <param name="engine">The IMAP engine.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseEnvelopeAsync(MailKit.Net.Imap.ImapEngine,System.Threading.CancellationToken)">
+            <summary>
+            Parses the ENVELOPE parenthesized list.
+            </summary>
+            <returns>The envelope.</returns>
+            <param name="engine">The IMAP engine.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
         <member name="M:MailKit.Net.Imap.ImapUtils.FormatFlagsList(System.Text.StringBuilder,MailKit.MessageFlags,System.Int32)">
@@ -13597,7 +13786,7 @@
             <param name="flags">The message flags.</param>
             <param name="numKeywords">The number of keywords.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseFlagsListAsync(MailKit.Net.Imap.ImapEngine,System.String,System.Collections.Generic.HashSet{System.String},System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseFlagsList(MailKit.Net.Imap.ImapEngine,System.String,System.Collections.Generic.HashSet{System.String},System.Threading.CancellationToken)">
             <summary>
             Parses the flags list.
             </summary>
@@ -13605,36 +13794,79 @@
             <param name="engine">The IMAP engine.</param>
             <param name="name">The name of the flags being parsed.</param>
             <param name="keywords">A hash set of user-defined message flags that will be populated if non-null.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseAnnotationsAsync(MailKit.Net.Imap.ImapEngine,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseFlagsListAsync(MailKit.Net.Imap.ImapEngine,System.String,System.Collections.Generic.HashSet{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Parses the flags list.
+            </summary>
+            <returns>The message flags.</returns>
+            <param name="engine">The IMAP engine.</param>
+            <param name="name">The name of the flags being parsed.</param>
+            <param name="keywords">A hash set of user-defined message flags that will be populated if non-null.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseAnnotations(MailKit.Net.Imap.ImapEngine,System.Threading.CancellationToken)">
             <summary>
             Parses the ANNOTATION list.
             </summary>
             <returns>The list of annotations.</returns>
             <param name="engine">The IMAP engine.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseLabelsListAsync(MailKit.Net.Imap.ImapEngine,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseAnnotationsAsync(MailKit.Net.Imap.ImapEngine,System.Threading.CancellationToken)">
+            <summary>
+            Parses the ANNOTATION list.
+            </summary>
+            <returns>The list of annotations.</returns>
+            <param name="engine">The IMAP engine.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseLabelsList(MailKit.Net.Imap.ImapEngine,System.Threading.CancellationToken)">
             <summary>
             Parses the X-GM-LABELS list.
             </summary>
             <returns>The message labels.</returns>
             <param name="engine">The IMAP engine.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
             <param name="cancellationToken">The cancellation token.</param>
         </member>
-        <member name="M:MailKit.Net.Imap.ImapUtils.ParseThreadsAsync(MailKit.Net.Imap.ImapEngine,System.UInt32,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseLabelsListAsync(MailKit.Net.Imap.ImapEngine,System.Threading.CancellationToken)">
+            <summary>
+            Parses the X-GM-LABELS list.
+            </summary>
+            <returns>The message labels.</returns>
+            <param name="engine">The IMAP engine.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseThreads(MailKit.Net.Imap.ImapEngine,System.UInt32,System.Collections.Generic.List{MailKit.MessageThread},System.Threading.CancellationToken)">
+            <summary>
+            Parses an untagged THREAD response.
+            </summary>
+            <returns>The task.</returns>
+            <param name="engine">The IMAP engine.</param>
+            <param name="uidValidity">The UIDVALIDITY of the folder.</param>
+            <param name="threads">The list of message threads that this method will append to.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.ParseThreadsAsync(MailKit.Net.Imap.ImapEngine,System.UInt32,System.Collections.Generic.List{MailKit.MessageThread},System.Threading.CancellationToken)">
             <summary>
             Parses the threads.
             </summary>
-            <returns>The threads.</returns>
+            <returns>The task.</returns>
             <param name="engine">The IMAP engine.</param>
             <param name="uidValidity">The UIDVALIDITY of the folder.</param>
-            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
+            <param name="threads">THe list of message threads that will be appended to.</param>
             <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MailKit.Net.Imap.ImapUtils.UntaggedThreadHandler(MailKit.Net.Imap.ImapEngine,MailKit.Net.Imap.ImapCommand,System.Int32,System.Boolean)">
+            <summary>
+            Handles an untagged THREAD response.
+            </summary>
+            <returns>The task.</returns>
+            <param name="engine">The IMAP engine.</param>
+            <param name="ic">The IMAP command.</param>
+            <param name="index">THe index.</param>
+            <param name="doAsync">Whether or not asynchronous IO methods should be used.</param>
         </member>
         <member name="T:MailKit.Net.Pop3.Pop3Client">
             <summary>
@@ -14964,6 +15196,25 @@
             <code language="c#" source="Examples\Pop3Examples.cs" region="Capabilities"/>
             </example>
             <value>The login delay.</value>
+        </member>
+        <member name="P:MailKit.Net.Pop3.Pop3Client.Size">
+            <summary>
+            Get the size of the POP3 mailbox, in bytes.
+            </summary>
+            <remarks>
+            <para>Gets the size of the POP3 mailbox, in bytes.</para>
+            <para>This value is updated as a side-effect of calling <see cref="M:MailKit.Net.Pop3.Pop3Client.GetMessageCount(System.Threading.CancellationToken)"/> or <see cref="M:MailKit.Net.Pop3.Pop3Client.GetMessageCountAsync(System.Threading.CancellationToken)"/>.</para>
+            </remarks>
+            <value>The size of the mailbox if available.</value>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.Net.Pop3.Pop3Client"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.Net.Pop3.Pop3Client"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.Net.Pop3.Pop3Client"/> is not authenticated.
+            </exception>
         </member>
         <member name="P:MailKit.Net.Pop3.Pop3Client.AuthenticationMechanisms">
             <summary>
@@ -17056,13 +17307,14 @@
             <param name="pop3">The pop3 stream.</param>
             <param name="cancellationToken">The cancellation token</param>
         </member>
-        <member name="M:MailKit.Net.Pop3.Pop3Engine.Disconnect">
+        <member name="M:MailKit.Net.Pop3.Pop3Engine.Disconnect(System.Exception)">
             <summary>
             Disconnects the <see cref="T:MailKit.Net.Pop3.Pop3Engine"/>.
             </summary>
             <remarks>
             Disconnects the <see cref="T:MailKit.Net.Pop3.Pop3Engine"/>.
             </remarks>
+            <param name="ex">The exception that is causing the disconnection.</param>
         </member>
         <member name="M:MailKit.Net.Pop3.Pop3Engine.ReadLine(System.Threading.CancellationToken)">
             <summary>
@@ -17096,17 +17348,25 @@
             An I/O error occurred.
             </exception>
         </member>
-        <member name="M:MailKit.Net.Pop3.Pop3Engine.Iterate">
+        <member name="M:MailKit.Net.Pop3.Pop3Engine.Run(System.Boolean,System.Threading.CancellationToken)">
             <summary>
-            Iterate the command pipeline.
+            Run the command pipeline.
             </summary>
-            <returns>The ID of the command that just completed.</returns>
+            <param name="throwOnError"><c>true</c> if exceptions should be thrown for failed commands; otherwise, <c>false</c>.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.InvalidOperationException">
+            The engine is not connected.
+            </exception>
         </member>
-        <member name="M:MailKit.Net.Pop3.Pop3Engine.IterateAsync">
+        <member name="M:MailKit.Net.Pop3.Pop3Engine.RunAsync(System.Boolean,System.Threading.CancellationToken)">
             <summary>
-            Iterate the command pipeline.
+            Asynchronously run the command pipeline.
             </summary>
-            <returns>The ID of the command that just completed.</returns>
+            <param name="throwOnError"><c>true</c> if exceptions should be thrown for failed commands; otherwise, <c>false</c>.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.InvalidOperationException">
+            The engine is not connected.
+            </exception>
         </member>
         <member name="T:MailKit.Net.Pop3.Pop3Language">
             <summary>
@@ -17495,6 +17755,46 @@
             </remarks>
             <returns><c>true</c>, if reading the line is complete, <c>false</c> otherwise.</returns>
             <param name="builder">The output buffer to write the line data into.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.ObjectDisposedException">
+            The stream has been disposed.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Pop3.Pop3Stream.QueueCommand(System.Text.Encoding,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Queue a command to the POP3 server.
+            </summary>
+            <remarks>
+            Queues a command to the POP3 server.
+            </remarks>
+            <param name="encoding">The character encoding.</param>
+            <param name="command">The command.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.ObjectDisposedException">
+            The stream has been disposed.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Pop3.Pop3Stream.QueueCommandAsync(System.Text.Encoding,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously queue a command to the POP3 server.
+            </summary>
+            <remarks>
+            Asynchronously queues a command to the POP3 server.
+            </remarks>
+            <param name="encoding">The character encoding.</param>
+            <param name="command">The command.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ObjectDisposedException">
             The stream has been disposed.
@@ -17988,9 +18288,12 @@
             An interface for connecting to services via a proxy.
             </summary>
             <remarks>
-            Implemented by <see cref="T:MailKit.Net.Smtp.SmtpClient"/>
-            and <see cref="T:MailKit.Net.Pop3.Pop3Client"/>.
+            Implemented by <see cref="T:MailKit.Net.Proxy.HttpProxyClient"/>, <see cref="T:MailKit.Net.Proxy.HttpsProxyClient"/>,
+            <see cref="T:MailKit.Net.Proxy.Socks4Client"/>, <see cref="T:MailKit.Net.Proxy.Socks4aClient"/> and <see cref="T:MailKit.Net.Proxy.Socks5Client"/>.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
         </member>
         <member name="P:MailKit.Net.Proxy.IProxyClient.ProxyCredentials">
             <summary>
@@ -18164,6 +18467,9 @@
             A proxy client can be used to connect to a service through a firewall that
             would otherwise be blocked.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
         </member>
         <member name="M:MailKit.Net.Proxy.ProxyClient.#ctor(System.String,System.Int32)">
             <summary>
@@ -18433,6 +18739,9 @@
             <remarks>
             A SOCKS4a proxy client.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
         </member>
         <member name="M:MailKit.Net.Proxy.Socks4aClient.#ctor(System.String,System.Int32)">
             <summary>
@@ -18484,6 +18793,9 @@
             <remarks>
             A SOCKS4 proxy client.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
         </member>
         <member name="M:MailKit.Net.Proxy.Socks4Client.#ctor(System.String,System.Int32)">
             <summary>
@@ -18604,6 +18916,9 @@
             <remarks>
             A SOCKS5 proxy client.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
         </member>
         <member name="M:MailKit.Net.Proxy.Socks5Client.#ctor(System.String,System.Int32)">
             <summary>
@@ -18612,6 +18927,9 @@
             <remarks>
             Initializes a new instance of the <see cref="T:MailKit.Net.Proxy.Socks5Client"/> class.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
             <param name="host">The host name of the proxy server.</param>
             <param name="port">The proxy server port.</param>
             <exception cref="T:System.ArgumentNullException">
@@ -18633,6 +18951,9 @@
             <remarks>
             Initializes a new instance of the <see cref="T:MailKit.Net.Proxy.Socks5Client"/> class.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
             <param name="host">The host name of the proxy server.</param>
             <param name="port">The proxy server port.</param>
             <param name="credentials">The credentials to use to authenticate with the proxy server.</param>
@@ -18786,7 +19107,7 @@
             large number of messages to the same SMTP server over a short period of time.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\SmtpExamples.cs" region="SendMessages" />
+            <code language="c#" source="Examples\SmtpExamples.cs" region="SendMessages"/>
             </example>
         </member>
         <member name="M:MailKit.Net.Smtp.SmtpClient.SendCommandAsync(System.String,System.Threading.CancellationToken)">
@@ -18814,9 +19135,6 @@
             </exception>
             <exception cref="T:System.IO.IOException">
             An I/O error occurred.
-            </exception>
-            <exception cref="T:MailKit.Net.Smtp.SmtpCommandException">
-            The SMTP command failed.
             </exception>
             <exception cref="T:MailKit.Net.Smtp.SmtpProtocolException">
             An SMTP protocol exception occurred.
@@ -19170,6 +19488,25 @@
             An SMTP protocol error occurred.
             </exception>
         </member>
+        <member name="M:MailKit.Net.Smtp.SmtpClient.GetSizeAsync(MimeKit.FormatOptions,MimeKit.MimeMessage,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously get the size of the message.
+            </summary>
+            <remarks>
+            <para>Asynchronously calculates the size of the message in bytes.</para>
+            <para>This method is called by <a href="Overload_MailKit_MailTransport_SendAsync.htm">SendAsync</a>
+            methods in the following conditions:</para>
+            <list type="bullet">
+            <item>The SMTP server supports the <c>SIZE=</c> parameter in the <c>MAIL FROM</c> command.</item>
+            <item>The <see cref="T:MailKit.ITransferProgress"/> parameter is non-null.</item>
+            <item>The SMTP server supports the <c>CHUNKING</c> extension.</item>
+            </list>
+            </remarks>
+            <returns>The size of the message, in bytes.</returns>
+            <param name="options">The formatting options.</param>
+            <param name="message">The message.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
         <member name="M:MailKit.Net.Smtp.SmtpClient.SendAsync(MimeKit.FormatOptions,MimeKit.MimeMessage,System.Threading.CancellationToken,MailKit.ITransferProgress)">
             <summary>
             Asynchronously send the specified message.
@@ -19286,6 +19623,9 @@
             <remarks>
             Expands a mailing address alias.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="ExpandAlias"/>
+            </example>
             <returns>The expanded list of mailbox addresses.</returns>
             <param name="alias">The mailing address alias.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -19302,7 +19642,7 @@
             The <see cref="T:MailKit.Net.Smtp.SmtpClient"/> is not connected.
             </exception>
             <exception cref="T:MailKit.ServiceNotAuthenticatedException">
-            Authentication is required before verifying the existence of an address.
+            Authentication is required before expanding an alias.
             </exception>
             <exception cref="T:System.OperationCanceledException">
             The operation has been canceled.
@@ -19325,6 +19665,9 @@
             Verifies the existence a mailbox address with the SMTP server, returning the expanded
             mailbox address if it exists.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="VerifyAddress"/>
+            </example>
             <returns>The expanded mailbox address.</returns>
             <param name="address">The mailbox address.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -19368,7 +19711,7 @@
             <a href="Overload_MailKit_Net_Smtp_SmtpClient_Authenticate.htm">Authenticate</a> methods.
             </remarks>
             <example>
-            <code language="c#" source="Examples\SmtpExamples.cs" region="SendMessages" />
+            <code language="c#" source="Examples\SmtpExamples.cs" region="SendMessages"/>
             </example>
         </member>
         <member name="M:MailKit.Net.Smtp.SmtpClient.#ctor(MailKit.IProtocolLogger)">
@@ -19475,6 +19818,20 @@
             <code language="c#" source="Examples\SmtpExamples.cs" region="Capabilities"/>
             </example>
             <value>The maximum message size supported by the server.</value>
+        </member>
+        <member name="P:MailKit.Net.Smtp.SmtpClient.RequireTLS">
+            <summary>
+            Get or set whether the client should use the REQUIRETLS extension if it is available.
+            </summary>
+            <remarks>
+            <para>Gets or sets whether the client should use the REQUIRETLS extension if it is available.</para>
+            <para>The REQUIRETLS extension (as defined in rfc8689) is a way to ensure that every SMTP server
+            that a message passes through on its way to the recipient is required to use a TLS connection in
+            order to transfer the message to the next SMTP server.</para>
+            <note type="note">This feature is only available if <see cref="P:MailKit.Net.Smtp.SmtpClient.Capabilities"/> contains the
+            <see cref="F:MailKit.Net.Smtp.SmtpCapabilities.RequireTLS"/> flag when sending the message.</note>
+            </remarks>
+            <value><c>true</c> if the REQUIRETLS extension should be used; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:MailKit.Net.Smtp.SmtpClient.AuthenticationMechanisms">
             <summary>
@@ -19680,9 +20037,6 @@
             </exception>
             <exception cref="T:System.IO.IOException">
             An I/O error occurred.
-            </exception>
-            <exception cref="T:MailKit.Net.Smtp.SmtpCommandException">
-            The SMTP command failed.
             </exception>
             <exception cref="T:MailKit.Net.Smtp.SmtpProtocolException">
             An SMTP protocol exception occurred.
@@ -20076,6 +20430,9 @@
             <remarks>
             Gets or sets how much of the message to include in any failed delivery status notifications.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="DeliveryStatusNotification"/>
+            </example>
             <value>A value indicating how much of the message to include in a failure delivery status notification.</value>
         </member>
         <member name="M:MailKit.Net.Smtp.SmtpClient.OnRecipientAccepted(MimeKit.MimeMessage,MimeKit.MailboxAddress,MailKit.Net.Smtp.SmtpResponse)">
@@ -20149,25 +20506,6 @@
             <remarks>
             <para>Calculates the size of the message in bytes.</para>
             <para>This method is called by <a href="Overload_MailKit_MailTransport_Send.htm">Send</a>
-            methods in the following conditions:</para>
-            <list type="bullet">
-            <item>The SMTP server supports the <c>SIZE=</c> parameter in the <c>MAIL FROM</c> command.</item>
-            <item>The <see cref="T:MailKit.ITransferProgress"/> parameter is non-null.</item>
-            <item>The SMTP server supports the <c>CHUNKING</c> extension.</item>
-            </list>
-            </remarks>
-            <returns>The size of the message, in bytes.</returns>
-            <param name="options">The formatting options.</param>
-            <param name="message">The message.</param>
-            <param name="cancellationToken">The cancellation token.</param>
-        </member>
-        <member name="M:MailKit.Net.Smtp.SmtpClient.GetSizeAsync(MimeKit.FormatOptions,MimeKit.MimeMessage,System.Threading.CancellationToken)">
-            <summary>
-            Asynchronously get the size of the message.
-            </summary>
-            <remarks>
-            <para>Asynchronously calculates the size of the message in bytes.</para>
-            <para>This method is called by <a href="Overload_MailKit_MailTransport_SendAsync.htm">SendAsync</a>
             methods in the following conditions:</para>
             <list type="bullet">
             <item>The SMTP server supports the <c>SIZE=</c> parameter in the <c>MAIL FROM</c> command.</item>
@@ -20296,6 +20634,9 @@
             <remarks>
             Expands a mailing address alias.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="ExpandAlias"/>
+            </example>
             <returns>The expanded list of mailbox addresses.</returns>
             <param name="alias">The mailing address alias.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -20312,7 +20653,7 @@
             The <see cref="T:MailKit.Net.Smtp.SmtpClient"/> is not connected.
             </exception>
             <exception cref="T:MailKit.ServiceNotAuthenticatedException">
-            Authentication is required before verifying the existence of an address.
+            Authentication is required before expanding an alias.
             </exception>
             <exception cref="T:System.OperationCanceledException">
             The operation has been canceled.
@@ -20335,6 +20676,9 @@
             Verifies the existence a mailbox address with the SMTP server, returning the expanded
             mailbox address if it exists.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="VerifyAddress"/>
+            </example>
             <returns>The expanded mailbox address.</returns>
             <param name="address">The mailbox address.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -20428,6 +20772,20 @@
             </example>
             <value>The maximum message size supported by the server.</value>
         </member>
+        <member name="P:MailKit.Net.Smtp.ISmtpClient.RequireTLS">
+            <summary>
+            Get or set whether the client should use the REQUIRETLS extension if it is available.
+            </summary>
+            <remarks>
+            <para>Gets or sets whether the client should use the REQUIRETLS extension if it is available.</para>
+            <para>The REQUIRETLS extension (as defined in rfc8689) is a way to ensure that every SMTP server
+            that a message passes through on its way to the recipient is required to use a TLS connection in
+            order to transfer the message to the next SMTP server.</para>
+            <note type="note">This feature is only available if <see cref="P:MailKit.Net.Smtp.ISmtpClient.Capabilities"/> contains the
+            <see cref="F:MailKit.Net.Smtp.SmtpCapabilities.RequireTLS"/> flag when sending the message.</note>
+            </remarks>
+            <value><c>true</c> if the REQUIRETLS extension should be used; otherwise, <c>false</c>.</value>
+        </member>
         <member name="P:MailKit.Net.Smtp.ISmtpClient.DeliveryStatusNotificationType">
             <summary>
             Get or set how much of the message to include in any failed delivery status notifications.
@@ -20435,6 +20793,9 @@
             <remarks>
             Gets or sets how much of the message to include in any failed delivery status notifications.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="DeliveryStatusNotification"/>
+            </example>
             <value>A value indicating how much of the message to include in a failure delivery status notification.</value>
         </member>
         <member name="M:MailKit.Net.Smtp.ISmtpClient.Expand(System.String,System.Threading.CancellationToken)">
@@ -20672,44 +21033,6 @@
             The server supports the <a href="https://tools.ietf.org/html/rfc8689">REQUIRETLS</a> extension.
             </summary>
         </member>
-        <member name="T:MailKit.Net.Smtp.SmtpErrorCode">
-            <summary>
-            An enumeration of the possible error codes that may be reported by a <see cref="T:MailKit.Net.Smtp.SmtpCommandException"/>.
-            </summary>
-            <remarks>
-            An enumeration of the possible error codes that may be reported by a <see cref="T:MailKit.Net.Smtp.SmtpCommandException"/>.
-            </remarks>
-            <example>
-            <code language="c#" source="Examples\SmtpExamples.cs" region="ExceptionHandling"/>
-            </example>
-        </member>
-        <member name="F:MailKit.Net.Smtp.SmtpErrorCode.MessageNotAccepted">
-            <summary>
-            The message was not accepted for delivery. This may happen if
-            the server runs out of available disk space.
-            </summary>
-        </member>
-        <member name="F:MailKit.Net.Smtp.SmtpErrorCode.SenderNotAccepted">
-            <summary>
-            The sender's mailbox address was not accepted. Check the
-            <see cref="P:MailKit.Net.Smtp.SmtpCommandException.Mailbox"/> property for the
-            mailbox used as the sender's mailbox address.
-            </summary>
-        </member>
-        <member name="F:MailKit.Net.Smtp.SmtpErrorCode.RecipientNotAccepted">
-            <summary>
-            A recipient's mailbox address was not accepted. Check the
-            <see cref="P:MailKit.Net.Smtp.SmtpCommandException.Mailbox"/> property for the
-            particular recipient mailbox that was not acccepted.
-            </summary>
-        </member>
-        <member name="F:MailKit.Net.Smtp.SmtpErrorCode.UnexpectedStatusCode">
-            <summary>
-            An unexpected status code was returned by the server.
-            For more details, the <see cref="P:System.Exception.Message"/>
-            property may provide some additional hints.
-            </summary>
-        </member>
         <member name="T:MailKit.Net.Smtp.SmtpCommandException">
             <summary>
             An SMTP protocol exception.
@@ -20799,7 +21122,7 @@
         </member>
         <member name="P:MailKit.Net.Smtp.SmtpCommandException.ErrorCode">
             <summary>
-            Gets the error code which may provide additional information.
+            Get the error code which may provide additional information.
             </summary>
             <remarks>
             The error code can be used to programatically deal with the
@@ -20813,7 +21136,7 @@
         </member>
         <member name="P:MailKit.Net.Smtp.SmtpCommandException.Mailbox">
             <summary>
-            Gets the mailbox that the error occurred on.
+            Get the mailbox that the error occurred on.
             </summary>
             <remarks>
             This property will only be available when the <see cref="P:MailKit.Net.Smtp.SmtpCommandException.ErrorCode"/>
@@ -20828,7 +21151,7 @@
         </member>
         <member name="P:MailKit.Net.Smtp.SmtpCommandException.StatusCode">
             <summary>
-            Gets the status code returned by the SMTP server.
+            Get the status code returned by the SMTP server.
             </summary>
             <remarks>
             The raw SMTP status code that resulted in the <see cref="T:MailKit.Net.Smtp.SmtpCommandException"/>
@@ -20844,23 +21167,26 @@
             An SMTP filter designed to format a message stream for the DATA command.
             </summary>
             <remarks>
-            A special stream filter that escapes lines beginning with a '.' as needed when
-            sending a message via the SMTP protocol or when saving a message to an IIS
-            message pickup directory.
+            A special stream filter that can encode or decode lines beginning with a '.' as
+            needed when sending/receiving a message via the SMTP protocol or when saving a
+            message to an IIS message pickup directory.
             </remarks>
             <example>
-            <code language="c#" source="Examples\SmtpExamples.cs" region="SaveToPickupDirectory" />
+            <code language="c#" source="Examples\SmtpExamples.cs" region="SaveToPickupDirectory"/>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="LoadFromPickupDirectory"/>
             </example>
         </member>
-        <member name="M:MailKit.Net.Smtp.SmtpDataFilter.#ctor">
+        <member name="M:MailKit.Net.Smtp.SmtpDataFilter.#ctor(System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MailKit.Net.Smtp.SmtpDataFilter"/> class.
             </summary>
             <remarks>
             Creates a new <see cref="T:MailKit.Net.Smtp.SmtpDataFilter"/>.
             </remarks>
+            <param name="decode"><c>true</c> if the filter should decode the content; otherwise, <c>false</c>.</param>
             <example>
-            <code language="c#" source="Examples\SmtpExamples.cs" region="SaveToPickupDirectory" />
+            <code language="c#" source="Examples\SmtpExamples.cs" region="SaveToPickupDirectory"/>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="LoadFromPickupDirectory"/>
             </example>
         </member>
         <member name="M:MailKit.Net.Smtp.SmtpDataFilter.Filter(System.Byte[],System.Int32,System.Int32,System.Int32@,System.Int32@,System.Boolean)">
@@ -20886,6 +21212,44 @@
             <remarks>
             Resets the filter.
             </remarks>
+        </member>
+        <member name="T:MailKit.Net.Smtp.SmtpErrorCode">
+            <summary>
+            An enumeration of the possible error codes that may be reported by a <see cref="T:MailKit.Net.Smtp.SmtpCommandException"/>.
+            </summary>
+            <remarks>
+            An enumeration of the possible error codes that may be reported by a <see cref="T:MailKit.Net.Smtp.SmtpCommandException"/>.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="ExceptionHandling"/>
+            </example>
+        </member>
+        <member name="F:MailKit.Net.Smtp.SmtpErrorCode.MessageNotAccepted">
+            <summary>
+            The message was not accepted for delivery. This may happen if
+            the server runs out of available disk space.
+            </summary>
+        </member>
+        <member name="F:MailKit.Net.Smtp.SmtpErrorCode.SenderNotAccepted">
+            <summary>
+            The sender's mailbox address was not accepted. Check the
+            <see cref="P:MailKit.Net.Smtp.SmtpCommandException.Mailbox"/> property for the
+            mailbox used as the sender's mailbox address.
+            </summary>
+        </member>
+        <member name="F:MailKit.Net.Smtp.SmtpErrorCode.RecipientNotAccepted">
+            <summary>
+            A recipient's mailbox address was not accepted. Check the
+            <see cref="P:MailKit.Net.Smtp.SmtpCommandException.Mailbox"/> property for the
+            particular recipient mailbox that was not acccepted.
+            </summary>
+        </member>
+        <member name="F:MailKit.Net.Smtp.SmtpErrorCode.UnexpectedStatusCode">
+            <summary>
+            An unexpected status code was returned by the server.
+            For more details, the <see cref="P:System.Exception.Message"/>
+            property may provide some additional hints.
+            </summary>
         </member>
         <member name="T:MailKit.Net.Smtp.SmtpProtocolException">
             <summary>
@@ -21408,6 +21772,90 @@
             An SMTP protocol error occurred.
             </exception>
         </member>
+        <member name="M:MailKit.Net.Smtp.SmtpStream.QueueCommand(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Queue a command to the SMTP server.
+            </summary>
+            <remarks>
+            Queues a command to the SMTP server.
+            </remarks>
+            <param name="command">The command.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.ObjectDisposedException">
+            The stream has been disposed.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Smtp.SmtpStream.QueueCommandAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously queue a command to the SMTP server.
+            </summary>
+            <remarks>
+            Asynchronously queues a command to the SMTP server.
+            </remarks>
+            <param name="command">The command.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.ObjectDisposedException">
+            The stream has been disposed.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Smtp.SmtpStream.SendCommand(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Send a command to the SMTP server.
+            </summary>
+            <remarks>
+            Sends a command to the SMTP server and reads the response.
+            </remarks>
+            <returns>The response.</returns>
+            <param name="command">The command.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.ObjectDisposedException">
+            The stream has been disposed.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.Net.Smtp.SmtpProtocolException">
+            An SMTP protocol error occurred.
+            </exception>
+        </member>
+        <member name="M:MailKit.Net.Smtp.SmtpStream.SendCommandAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously send a command to the SMTP server.
+            </summary>
+            <remarks>
+            Asynchronously sends a command to the SMTP server and reads the response.
+            </remarks>
+            <returns>The response.</returns>
+            <param name="command">The command.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <exception cref="T:System.ObjectDisposedException">
+            The stream has been disposed.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.Net.Smtp.SmtpProtocolException">
+            An SMTP protocol error occurred.
+            </exception>
+        </member>
         <member name="M:MailKit.Net.Smtp.SmtpStream.Write(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Writes a sequence of bytes to the stream and advances the current
@@ -21617,6 +22065,9 @@
             the full message should be included in any failed DSN issued for
             a message transmission as opposed to just the headers.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="DeliveryStatusNotification"/>
+            </example>
         </member>
         <member name="F:MailKit.Net.Smtp.DeliveryStatusNotificationType.Unspecified">
             <summary>
@@ -21915,6 +22366,9 @@
             <summary>
             Initializes a new instance of the <see cref="T:MailKit.Search.OrderBy"/> class.
             </summary>
+            <remarks>
+            Creates a new <see cref="T:MailKit.Search.OrderBy"/> instance.
+            </remarks>
             <param name="type">The field to sort by.</param>
             <param name="order">The sort order.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">
@@ -23499,6 +23953,27 @@
             </remarks>
             <value>The NTLM attribute.</value>
         </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeValuePair.GetEncodedLength(System.Text.Encoding)">
+            <summary>
+            Get the number of bytes needed for encoding the attribute value.
+            </summary>
+            <remarks>
+            Gets the number of bytes needed for encoding the attribute value.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <returns>The number of bytes needed to encode the value.</returns>
+        </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeValuePair.EncodeTo(System.Text.Encoding,System.Byte[],System.Int32@)">
+            <summary>
+            Encode the attribute value to the specified buffer.
+            </summary>
+            <remarks>
+            Encodes the attribute value to the specified buffer.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <param name="buffer">The output buffer.</param>
+            <param name="index">The index into the buffer to start appending the encoded attribute.</param>
+        </member>
         <member name="T:MailKit.Security.Ntlm.NtlmAttributeStringValuePair">
             <summary>
             An NTLM attribute and value pair consisting of a string value.
@@ -23525,6 +24000,27 @@
             Gets or sets the value of the attribute.
             </remarks>
             <value>The attribute value.</value>
+        </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeStringValuePair.GetEncodedLength(System.Text.Encoding)">
+            <summary>
+            Get the number of bytes needed for encoding the attribute value.
+            </summary>
+            <remarks>
+            Gets the number of bytes needed for encoding the attribute value.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <returns>The number of bytes needed to encode the value.</returns>
+        </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeStringValuePair.EncodeTo(System.Text.Encoding,System.Byte[],System.Int32@)">
+            <summary>
+            Encode the attribute value to the specified buffer.
+            </summary>
+            <remarks>
+            Encodes the attribute value to the specified buffer.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <param name="buffer">The output buffer.</param>
+            <param name="index">The index into the buffer to start appending the encoded attribute.</param>
         </member>
         <member name="T:MailKit.Security.Ntlm.NtlmAttributeFlagsValuePair">
             <summary>
@@ -23572,6 +24068,27 @@
             </remarks>
             <value>The attribute value.</value>
         </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeFlagsValuePair.GetEncodedLength(System.Text.Encoding)">
+            <summary>
+            Get the number of bytes needed for encoding the attribute value.
+            </summary>
+            <remarks>
+            Gets the number of bytes needed for encoding the attribute value.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <returns>The number of bytes needed to encode the value.</returns>
+        </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeFlagsValuePair.EncodeTo(System.Text.Encoding,System.Byte[],System.Int32@)">
+            <summary>
+            Encode the attribute value to the specified buffer.
+            </summary>
+            <remarks>
+            Encodes the attribute value to the specified buffer.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <param name="buffer">The output buffer.</param>
+            <param name="index">The index into the buffer to start appending the encoded attribute.</param>
+        </member>
         <member name="T:MailKit.Security.Ntlm.NtlmAttributeTimestampValuePair">
             <summary>
             An NTLM attribute and value pair consisting of a timestamp value.
@@ -23618,6 +24135,27 @@
             </remarks>
             <value>The attribute value.</value>
         </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeTimestampValuePair.GetEncodedLength(System.Text.Encoding)">
+            <summary>
+            Get the number of bytes needed for encoding the attribute value.
+            </summary>
+            <remarks>
+            Gets the number of bytes needed for encoding the attribute value.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <returns>The number of bytes needed to encode the value.</returns>
+        </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeTimestampValuePair.EncodeTo(System.Text.Encoding,System.Byte[],System.Int32@)">
+            <summary>
+            Encode the attribute value to the specified buffer.
+            </summary>
+            <remarks>
+            Encodes the attribute value to the specified buffer.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <param name="buffer">The output buffer.</param>
+            <param name="index">The index into the buffer to start appending the encoded attribute.</param>
+        </member>
         <member name="T:MailKit.Security.Ntlm.NtlmAttributeByteArrayValuePair">
             <summary>
             An NTLM attribute and value pair consisting of a byte array value.
@@ -23644,6 +24182,27 @@
             Gets or sets the value of the attribute.
             </remarks>
             <value>The attribute value.</value>
+        </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeByteArrayValuePair.GetEncodedLength(System.Text.Encoding)">
+            <summary>
+            Get the number of bytes needed for encoding the attribute value.
+            </summary>
+            <remarks>
+            Gets the number of bytes needed for encoding the attribute value.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <returns>The number of bytes needed to encode the value.</returns>
+        </member>
+        <member name="M:MailKit.Security.Ntlm.NtlmAttributeByteArrayValuePair.EncodeTo(System.Text.Encoding,System.Byte[],System.Int32@)">
+            <summary>
+            Encode the attribute value to the specified buffer.
+            </summary>
+            <remarks>
+            Encodes the attribute value to the specified buffer.
+            </remarks>
+            <param name="encoding">The text encoding.</param>
+            <param name="buffer">The output buffer.</param>
+            <param name="index">The index into the buffer to start appending the encoded attribute.</param>
         </member>
         <member name="P:MailKit.Security.Ntlm.NtlmAuthenticateMessage.ClientChallenge">
             <summary>
@@ -27274,7 +27833,7 @@
             <see cref="T:MailKit.BodyPartMultipart"/>.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
         </member>
         <member name="M:MailKit.BodyPart.#ctor">
@@ -27302,7 +27861,7 @@
             Gets the part specifier.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueIdAndSpecifier"/>
             </example>
             <value>The part specifier.</value>
         </member>
@@ -27368,7 +27927,7 @@
             message/rfc822 part, or a text part.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
         </member>
         <member name="M:MailKit.BodyPartBasic.#ctor">
@@ -27816,7 +28375,7 @@
             Represents any body part with a media type of "text".
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
         </member>
         <member name="M:MailKit.BodyPartText.#ctor">
@@ -28305,6 +28864,9 @@
             when a delivery status notification should be sent for a
             particlar recipient.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\SmtpExamples.cs" region="DeliveryStatusNotification"/>
+            </example>
         </member>
         <member name="F:MailKit.DeliveryStatusNotification.Never">
             <summary>
@@ -28859,7 +29421,7 @@
             A folder access mode.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessages"/>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
             </example>
         </member>
         <member name="F:MailKit.FolderAccess.None">
@@ -30260,6 +30822,9 @@
             <remarks>
             Gets the total number of messages in the folder.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByIndex"/>
+            </example>
             <value>The total number of messages.</value>
         </member>
         <member name="P:MailKit.IMailFolder.ThreadingAlgorithms">
@@ -31394,7 +31959,7 @@
             not requested at all.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>An enumeration of summaries for the requested messages.</returns>
             <param name="uids">The UIDs.</param>
@@ -31604,6 +32169,9 @@
             <remarks>
             Gets the specified message.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
+            </example>
             <returns>The message.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -31616,6 +32184,9 @@
             <remarks>
             Asynchronously gets the specified message.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
+            </example>
             <returns>The message.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -31628,6 +32199,9 @@
             <remarks>
             Gets the specified message.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByIndex"/>
+            </example>
             <returns>The message.</returns>
             <param name="index">The index of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -31640,6 +32214,9 @@
             <remarks>
             Asynchronously gets the specified message.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByIndex"/>
+            </example>
             <returns>The message.</returns>
             <param name="index">The index of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -31653,7 +32230,7 @@
             Gets the specified body part.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>The body part.</returns>
             <param name="uid">The UID of the message.</param>
@@ -31668,6 +32245,9 @@
             <remarks>
             Asynchronously gets the specified body part.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
+            </example>
             <returns>The body part.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="part">The body part.</param>
@@ -31697,6 +32277,66 @@
             <returns>The body part.</returns>
             <param name="index">The index of the message.</param>
             <param name="part">The body part.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+        </member>
+        <member name="M:MailKit.IMailFolder.GetStream(MailKit.UniqueId,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Get a message stream.
+            </summary>
+            <remarks>
+            Gets a message stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessageStreamsByUniqueId"/>
+            </example>
+            <returns>The message stream.</returns>
+            <param name="uid">The UID of the message.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+        </member>
+        <member name="M:MailKit.IMailFolder.GetStreamAsync(MailKit.UniqueId,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Asynchronously get a message stream.
+            </summary>
+            <remarks>
+            Asynchronously gets a message stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessageStreamsByUniqueId"/>
+            </example>
+            <returns>The message stream.</returns>
+            <param name="uid">The UID of the message.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+        </member>
+        <member name="M:MailKit.IMailFolder.GetStream(System.Int32,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Get a message stream.
+            </summary>
+            <remarks>
+            Gets a message stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessageStreamsByIndex"/>
+            </example>
+            <returns>The message stream.</returns>
+            <param name="index">The index of the message.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+        </member>
+        <member name="M:MailKit.IMailFolder.GetStreamAsync(System.Int32,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Asynchronously get a message stream.
+            </summary>
+            <remarks>
+            Asynchronously gets a message stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessageStreamsByIndex"/>
+            </example>
+            <returns>The message stream.</returns>
+            <param name="index">The index of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <param name="progress">The progress reporting mechanism.</param>
         </member>
@@ -31765,6 +32405,64 @@
             <param name="index">The index of the message.</param>
             <param name="offset">The starting offset of the first desired byte.</param>
             <param name="count">The number of bytes desired.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+        </member>
+        <member name="M:MailKit.IMailFolder.GetStream(MailKit.UniqueId,MailKit.BodyPart,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Get a body part as a stream.
+            </summary>
+            <remarks>
+            Gets a body part as a stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueId"/>
+            </example>
+            <returns>The body part stream.</returns>
+            <param name="uid">The UID of the message.</param>
+            <param name="part">The desired body part.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+        </member>
+        <member name="M:MailKit.IMailFolder.GetStreamAsync(MailKit.UniqueId,MailKit.BodyPart,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Asynchronously get a body part as a stream.
+            </summary>
+            <remarks>
+            Asynchronously gets a body part as a stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueId"/>
+            </example>
+            <returns>The body part stream.</returns>
+            <param name="uid">The UID of the message.</param>
+            <param name="part">The desired body part.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+        </member>
+        <member name="M:MailKit.IMailFolder.GetStream(System.Int32,MailKit.BodyPart,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Get a body part as a stream.
+            </summary>
+            <remarks>
+            Gets a body part as a stream.
+            </remarks>
+            <returns>The body part stream.</returns>
+            <param name="index">The index of the message.</param>
+            <param name="part">The desired body part.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+        </member>
+        <member name="M:MailKit.IMailFolder.GetStreamAsync(System.Int32,MailKit.BodyPart,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Asynchronously get a body part as a stream.
+            </summary>
+            <remarks>
+            Asynchronously gets a body part as a stream.
+            </remarks>
+            <returns>The body part stream.</returns>
+            <param name="index">The index of the message.</param>
+            <param name="part">The desired body part.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <param name="progress">The progress reporting mechanism.</param>
         </member>
@@ -31849,6 +32547,9 @@
             <para>For more information about how to construct the <paramref name="section"/>,
             see Section 6.4.5 of RFC3501.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueIdAndSpecifier"/>
+            </example>
             <returns>The stream.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="section">The desired section of the message.</param>
@@ -31864,6 +32565,9 @@
             <para>For more information about how to construct the <paramref name="section"/>,
             see Section 6.4.5 of RFC3501.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueIdAndSpecifier"/>
+            </example>
             <returns>The stream.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="section">The desired section of the message.</param>
@@ -34658,7 +35362,7 @@
             not requested at all.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>An enumeration of summaries for the requested messages.</returns>
             <param name="folder">The folder.</param>
@@ -34710,6 +35414,9 @@
             messages that were requested as well as summaries for messages that were
             not requested at all.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
+            </example>
             <returns>An enumeration of summaries for the requested messages.</returns>
             <param name="folder">The folder.</param>
             <param name="uids">The UIDs.</param>
@@ -36650,9 +37357,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -36693,9 +37398,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -36739,9 +37442,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -36786,9 +37487,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -36834,9 +37533,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -36883,9 +37580,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -36932,9 +37627,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -36982,9 +37675,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37027,9 +37718,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37073,9 +37762,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para><see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/>
-            <para>No flags were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37119,9 +37806,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37166,9 +37851,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37214,9 +37897,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37263,9 +37944,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37312,9 +37991,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37362,9 +38039,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37758,9 +38433,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37808,9 +38481,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37859,9 +38530,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37910,9 +38579,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -37960,9 +38627,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38010,9 +38675,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38061,9 +38724,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38112,9 +38773,7 @@
             <paramref name="uids"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38351,9 +39010,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38394,9 +39051,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38437,9 +39092,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38481,9 +39134,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38526,9 +39177,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38572,9 +39221,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38618,9 +39265,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38665,9 +39310,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38707,9 +39350,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38750,9 +39391,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38793,9 +39432,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38837,9 +39474,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38882,9 +39517,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38928,9 +39561,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -38974,9 +39605,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39021,9 +39650,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39063,7 +39690,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39104,7 +39731,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39145,7 +39772,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39187,7 +39814,7 @@
             <param name="silent">If set to <c>true</c>, no <see cref="E:MailKit.IMailFolder.MessageFlagsChanged"/> events will be emitted.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39408,9 +40035,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39458,9 +40083,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39509,9 +40132,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39560,9 +40181,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39610,9 +40229,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39660,9 +40277,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39711,9 +40326,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -39762,9 +40375,7 @@
             <paramref name="indexes"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No flags were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40004,9 +40615,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40050,9 +40659,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40097,9 +40704,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40145,9 +40750,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40190,9 +40793,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40236,9 +40837,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="uid"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            <paramref name="uid"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40283,9 +40882,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40331,9 +40928,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40559,8 +41154,6 @@
             </exception>
             <exception cref="T:System.ArgumentException">
             One or more of the <paramref name="uids"/> is invalid.
-            <para>-or-</para>
-            <para>No labels were specified.</para>
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40610,9 +41203,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40662,9 +41253,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40714,9 +41303,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="uids"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="uids"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40862,9 +41449,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40908,9 +41493,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -40955,9 +41538,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41003,9 +41584,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41048,9 +41627,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41094,9 +41671,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41141,9 +41716,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41189,9 +41762,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41234,7 +41805,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41278,7 +41849,7 @@
             <paramref name="labels"/> is <c>null</c>.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para><paramref name="index"/> is invalid.</para>
+            <paramref name="index"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41416,9 +41987,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41468,9 +42037,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41520,9 +42087,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41572,9 +42137,7 @@
             <para><paramref name="labels"/> is <c>null</c>.</para>
             </exception>
             <exception cref="T:System.ArgumentException">
-            <para>One or more of the <paramref name="indexes"/> is invalid.</para>
-            <para>-or-</para>
-            <para>No labels were specified.</para>
+            One or more of the <paramref name="indexes"/> is invalid.
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -41797,6 +42360,9 @@
             Gets or sets the proxy client to use when connecting to a remote host via any of the
             <a href="Overload_MailKit_IMailService_Connect.htm">Connect</a> methods.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
             <value>The proxy client.</value>
         </member>
         <member name="P:MailKit.IMailService.AuthenticationMechanisms">
@@ -44076,7 +44642,7 @@
             methods.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <value>The text body if it exists; otherwise, <c>null</c>.</value>
         </member>
@@ -44092,6 +44658,9 @@
             or <a href="Overload_MailKit_IMailFolder_FetchAsync.htm">FetchAsync</a>
             methods.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
+            </example>
             <value>The html body if it exists; otherwise, <c>null</c>.</value>
         </member>
         <member name="P:MailKit.IMessageSummary.BodyParts">
@@ -44125,7 +44694,7 @@
             methods.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <value>The attachments.</value>
         </member>
@@ -44424,7 +44993,7 @@
             An interface for logging the communication between a client and server.
             </remarks>
             <example>
-            <code language="c#" source="Examples\SmtpExamples.cs" region="ProtocolLogger" />
+            <code language="c#" source="Examples\SmtpExamples.cs" region="ProtocolLogger"/>
             </example>
         </member>
         <member name="P:MailKit.IProtocolLogger.AuthenticationSecretDetector">
@@ -44966,6 +45535,9 @@
             <see cref="M:MailKit.MailFolder.Status(MailKit.StatusItems,System.Threading.CancellationToken)"/>
             with <see cref="F:MailKit.StatusItems.Count"/> or by opening the folder.</note>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByIndex"/>
+            </example>
             <value>The total number of messages.</value>
         </member>
         <member name="P:MailKit.MailFolder.ThreadingAlgorithms">
@@ -48898,7 +49470,7 @@
             not requested at all.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>An enumeration of summaries for the requested messages.</returns>
             <param name="uids">The UIDs.</param>
@@ -49552,6 +50124,9 @@
             <remarks>
             Gets the specified message.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
+            </example>
             <returns>The message.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -49594,6 +50169,9 @@
             <remarks>
             Asynchronously gets the specified message.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByUniqueId"/>
+            </example>
             <returns>The message.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -49636,6 +50214,9 @@
             <remarks>
             Gets the specified message.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByIndex"/>
+            </example>
             <returns>The message.</returns>
             <param name="index">The index of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -49678,6 +50259,9 @@
             <remarks>
             Asynchronously gets the specified message.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessagesByIndex"/>
+            </example>
             <returns>The message.</returns>
             <param name="index">The index of the message.</param>
             <param name="cancellationToken">The cancellation token.</param>
@@ -49721,7 +50305,7 @@
             Gets the specified body part.
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <returns>The body part.</returns>
             <param name="uid">The UID of the message.</param>
@@ -49886,6 +50470,186 @@
             </exception>
             <exception cref="T:MailKit.MessageNotFoundException">
             The <see cref="T:MailKit.IMailStore"/> did not return the requested message body.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.ProtocolException">
+            The server's response contained unexpected tokens.
+            </exception>
+            <exception cref="T:MailKit.CommandException">
+            The command failed.
+            </exception>
+        </member>
+        <member name="M:MailKit.MailFolder.GetStream(MailKit.UniqueId,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Get a message stream.
+            </summary>
+            <remarks>
+            Gets a message stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessageStreamsByUniqueId"/>
+            </example>
+            <returns>The message stream.</returns>
+            <param name="uid">The UID of the message.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="uid"/> is invalid.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.IMailStore"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.IMailStore"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.IMailStore"/> is not authenticated.
+            </exception>
+            <exception cref="T:MailKit.FolderNotOpenException">
+            The folder is not currently open.
+            </exception>
+            <exception cref="T:MailKit.MessageNotFoundException">
+            The <see cref="T:MailKit.IMailStore"/> did not return the requested message stream.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.ProtocolException">
+            The server's response contained unexpected tokens.
+            </exception>
+            <exception cref="T:MailKit.CommandException">
+            The command failed.
+            </exception>
+        </member>
+        <member name="M:MailKit.MailFolder.GetStreamAsync(MailKit.UniqueId,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Asynchronously get a message stream.
+            </summary>
+            <remarks>
+            Asynchronously gets a message stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessageStreamsByUniqueId"/>
+            </example>
+            <returns>The message stream.</returns>
+            <param name="uid">The UID of the message.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="uid"/> is invalid.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.IMailStore"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.IMailStore"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.IMailStore"/> is not authenticated.
+            </exception>
+            <exception cref="T:MailKit.FolderNotOpenException">
+            The folder is not currently open.
+            </exception>
+            <exception cref="T:MailKit.MessageNotFoundException">
+            The <see cref="T:MailKit.IMailStore"/> did not return the requested message stream.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.ProtocolException">
+            The server's response contained unexpected tokens.
+            </exception>
+            <exception cref="T:MailKit.CommandException">
+            The command failed.
+            </exception>
+        </member>
+        <member name="M:MailKit.MailFolder.GetStream(System.Int32,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Get a message stream.
+            </summary>
+            <remarks>
+            Gets a message stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessageStreamsByIndex"/>
+            </example>
+            <returns>The message stream.</returns>
+            <param name="index">The index of the message.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="index"/> is out of range.</para>
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.IMailStore"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.IMailStore"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.IMailStore"/> is not authenticated.
+            </exception>
+            <exception cref="T:MailKit.FolderNotOpenException">
+            The folder is not currently open.
+            </exception>
+            <exception cref="T:MailKit.MessageNotFoundException">
+            The <see cref="T:MailKit.IMailStore"/> did not return the requested message stream.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.ProtocolException">
+            The server's response contained unexpected tokens.
+            </exception>
+            <exception cref="T:MailKit.CommandException">
+            The command failed.
+            </exception>
+        </member>
+        <member name="M:MailKit.MailFolder.GetStreamAsync(System.Int32,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Asynchronously get a message stream.
+            </summary>
+            <remarks>
+            Asynchronously gets a message stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadMessageStreamsByIndex"/>
+            </example>
+            <returns>The message stream.</returns>
+            <param name="index">The index of the message.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="index"/> is out of range.</para>
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.IMailStore"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.IMailStore"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.IMailStore"/> is not authenticated.
+            </exception>
+            <exception cref="T:MailKit.FolderNotOpenException">
+            The folder is not currently open.
+            </exception>
+            <exception cref="T:MailKit.MessageNotFoundException">
+            The <see cref="T:MailKit.IMailStore"/> did not return the requested message stream.
             </exception>
             <exception cref="T:System.OperationCanceledException">
             The operation was canceled via the cancellation token.
@@ -50077,6 +50841,196 @@
             <para><paramref name="offset"/> is negative.</para>
             <para>-or-</para>
             <para><paramref name="count"/> is negative.</para>
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.IMailStore"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.IMailStore"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.IMailStore"/> is not authenticated.
+            </exception>
+            <exception cref="T:MailKit.FolderNotOpenException">
+            The folder is not currently open.
+            </exception>
+            <exception cref="T:MailKit.MessageNotFoundException">
+            The <see cref="T:MailKit.IMailStore"/> did not return the requested message stream.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.ProtocolException">
+            The server's response contained unexpected tokens.
+            </exception>
+            <exception cref="T:MailKit.CommandException">
+            The command failed.
+            </exception>
+        </member>
+        <member name="M:MailKit.MailFolder.GetStream(MailKit.UniqueId,MailKit.BodyPart,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Get a body part as a stream.
+            </summary>
+            <remarks>
+            Gets a body part as a stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueId"/>
+            </example>
+            <returns>The body part stream.</returns>
+            <param name="uid">The UID of the message.</param>
+            <param name="part">The desired body part.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="uid"/> is invalid.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="part"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.IMailStore"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.IMailStore"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.IMailStore"/> is not authenticated.
+            </exception>
+            <exception cref="T:MailKit.FolderNotOpenException">
+            The folder is not currently open.
+            </exception>
+            <exception cref="T:MailKit.MessageNotFoundException">
+            The <see cref="T:MailKit.IMailStore"/> did not return the requested message stream.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.ProtocolException">
+            The server's response contained unexpected tokens.
+            </exception>
+            <exception cref="T:MailKit.CommandException">
+            The command failed.
+            </exception>
+        </member>
+        <member name="M:MailKit.MailFolder.GetStreamAsync(MailKit.UniqueId,MailKit.BodyPart,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Asynchronously get a body part as a stream.
+            </summary>
+            <remarks>
+            Asynchronously gets a body part as a stream.
+            </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueId"/>
+            </example>
+            <returns>The body part stream.</returns>
+            <param name="uid">The UID of the message.</param>
+            <param name="part">The desired body part.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="uid"/> is invalid.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="part"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.IMailStore"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.IMailStore"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.IMailStore"/> is not authenticated.
+            </exception>
+            <exception cref="T:MailKit.FolderNotOpenException">
+            The folder is not currently open.
+            </exception>
+            <exception cref="T:MailKit.MessageNotFoundException">
+            The <see cref="T:MailKit.IMailStore"/> did not return the requested message stream.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.ProtocolException">
+            The server's response contained unexpected tokens.
+            </exception>
+            <exception cref="T:MailKit.CommandException">
+            The command failed.
+            </exception>
+        </member>
+        <member name="M:MailKit.MailFolder.GetStream(System.Int32,MailKit.BodyPart,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Get a body part as a stream.
+            </summary>
+            <remarks>
+            Gets a body part as a stream.
+            </remarks>
+            <returns>The body part stream.</returns>
+            <param name="index">The index of the message.</param>
+            <param name="part">The desired body part.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="part"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="index"/> is out of range.</para>
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:MailKit.IMailStore"/> has been disposed.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotConnectedException">
+            The <see cref="T:MailKit.IMailStore"/> is not connected.
+            </exception>
+            <exception cref="T:MailKit.ServiceNotAuthenticatedException">
+            The <see cref="T:MailKit.IMailStore"/> is not authenticated.
+            </exception>
+            <exception cref="T:MailKit.FolderNotOpenException">
+            The folder is not currently open.
+            </exception>
+            <exception cref="T:MailKit.MessageNotFoundException">
+            The <see cref="T:MailKit.IMailStore"/> did not return the requested message stream.
+            </exception>
+            <exception cref="T:System.OperationCanceledException">
+            The operation was canceled via the cancellation token.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurred.
+            </exception>
+            <exception cref="T:MailKit.ProtocolException">
+            The server's response contained unexpected tokens.
+            </exception>
+            <exception cref="T:MailKit.CommandException">
+            The command failed.
+            </exception>
+        </member>
+        <member name="M:MailKit.MailFolder.GetStreamAsync(System.Int32,MailKit.BodyPart,System.Threading.CancellationToken,MailKit.ITransferProgress)">
+            <summary>
+            Asynchronously get a body part as a stream.
+            </summary>
+            <remarks>
+            Asynchronously gets a body part as a stream.
+            </remarks>
+            <returns>The body part stream.</returns>
+            <param name="index">The index of the message.</param>
+            <param name="part">The desired body part.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress reporting mechanism.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="part"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="index"/> is out of range.</para>
             </exception>
             <exception cref="T:System.ObjectDisposedException">
             The <see cref="T:MailKit.IMailStore"/> has been disposed.
@@ -50337,6 +51291,9 @@
             <para>For more information about how to construct the <paramref name="section"/>,
             see Section 6.4.5 of RFC3501.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueIdAndSpecifier"/>
+            </example>
             <returns>The stream.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="section">The desired section of the message.</param>
@@ -50385,6 +51342,9 @@
             <para>For more information about how to construct the <paramref name="section"/>,
             see Section 6.4.5 of RFC3501.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartStreamsByUniqueIdAndSpecifier"/>
+            </example>
             <returns>The stream.</returns>
             <param name="uid">The UID of the message.</param>
             <param name="section">The desired section of the message.</param>
@@ -53745,6 +54705,9 @@
             Gets or sets the proxy client to use when connecting to a remote host via any of the
             <a href="Overload_MailKit_MailService_Connect.htm">Connect</a> methods.
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ProxyExamples.cs" region="ProxyClient" />
+            </example>
             <value>The proxy client.</value>
         </member>
         <member name="P:MailKit.MailService.AuthenticationMechanisms">
@@ -58333,7 +59296,7 @@
             methods.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <value>The text body if it exists; otherwise, <c>null</c>.</value>
         </member>
@@ -58349,6 +59312,9 @@
             or <a href="Overload_MailKit_IMailFolder_FetchAsync.htm">FetchAsync</a>
             methods.</para>
             </remarks>
+            <example>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
+            </example>
             <value>The html body if it exists; otherwise, <c>null</c>.</value>
         </member>
         <member name="P:MailKit.MessageSummary.BodyParts">
@@ -58382,7 +59348,7 @@
             methods.</para>
             </remarks>
             <example>
-            <code language="c#" source="Examples\ImapExamples.cs" region="DownloadBodyParts"/>
+            <code language="c#" source="Examples\ImapBodyPartExamples.cs" region="GetBodyPartsByUniqueId"/>
             </example>
             <value>The attachments.</value>
         </member>
@@ -58845,7 +59811,7 @@
         <member name="F:MailKit.MessageSummaryItems.PreviewText">
             <summary>
             <para>Fetch the <see cref="P:MailKit.IMessageSummary.PreviewText"/>.</para>
-            <note type="note">This property is quite expensive to calculate because it is not an
+            <note type="note">This property can be quite expensive to calculate because it is typically not an
             item that is cached on the IMAP server. Instead, MailKit must download a hunk of the
             message body so that it can decode and parse it in order to generate a meaningful
             text snippet. This usually involves downloading the first 512 bytes for <c>text/plain</c>
@@ -59478,7 +60444,7 @@
             A default protocol logger for logging the communication between a client and server.
             </remarks>
             <example>
-            <code language="c#" source="Examples\SmtpExamples.cs" region="ProtocolLogger" />
+            <code language="c#" source="Examples\SmtpExamples.cs" region="ProtocolLogger"/>
             </example>
         </member>
         <member name="M:MailKit.ProtocolLogger.#ctor(System.String,System.Boolean)">
@@ -59489,7 +60455,7 @@
             Creates a new <see cref="T:MailKit.ProtocolLogger"/> to log to a specified file. The file is created if it does not exist.
             </remarks>
             <example>
-            <code language="c#" source="Examples\SmtpExamples.cs" region="ProtocolLogger" />
+            <code language="c#" source="Examples\SmtpExamples.cs" region="ProtocolLogger"/>
             </example>
             <param name="fileName">The file name.</param>
             <param name="append"><c>true</c> if the file should be appended to; otherwise, <c>false</c>. Defaults to <c>true</c>.</param>
